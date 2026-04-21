@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaGlow Studio — лазерная эпиляция в Казани</title>
+<style>
+  :root {
+    --primary: #0D9488;
+    --primary-dark: #134E4A;
+    --accent: #F97316;
+    --accent-soft: #FED7AA;
+    --bg: #FEFDF8;
+    --surface: #FFFFFF;
+    --text: #1A1F2E;
+    --text-muted: #5B6470;
+    --border: #E7E2D5;
+    --shadow: 0 8px 30px rgba(13, 148, 136, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    gap: 20px;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--accent); }
+  nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--primary); }
+  .header-phone {
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-size: 17px;
+    white-space: nowrap;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 90px;
+    background: linear-gradient(135deg, #E0F7F4 0%, #FEFDF8 55%, #FFF1E6 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 22px;
+    letter-spacing: -1px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero p.lead {
+    font-size: 19px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(249, 115, 22, 0.45); }
+  .btn-secondary {
+    background: var(--surface);
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
+  }
+  .btn-secondary:hover { background: var(--primary-dark); color: white; }
+
+  .hero-badges {
+    margin-top: 38px;
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-badge { display: flex; flex-direction: column; }
+  .hero-badge strong {
+    font-size: 32px;
+    color: var(--primary);
+    font-weight: 800;
+  }
+  .hero-badge span { font-size: 14px; color: var(--text-muted); }
+
+  .hero-card {
+    background: var(--surface);
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .hero-card h3 { font-size: 22px; margin-bottom: 18px; color: var(--primary-dark); }
+  .hero-card form { display: flex; flex-direction: column; gap: 12px; }
+  .hero-card input {
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .hero-card input:focus { border-color: var(--primary); }
+  .hero-card small { color: var(--text-muted); font-size: 12px; text-align: center; margin-top: 6px; }
+
+  /* Sections */
+  section.block { padding: 80px 0; }
+  .section-title {
+    font-size: 38px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--primary-dark);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 620px;
+    margin: 0 auto 54px;
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary);
+  }
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--primary), #22D3BB);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .service-card h4 { font-size: 19px; margin-bottom: 8px; color: var(--primary-dark); }
+  .service-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 14px; }
+  .service-card .price { font-weight: 700; color: var(--accent); font-size: 17px; }
+
+  /* Benefits */
+  .benefits { background: var(--primary-dark); color: white; }
+  .benefits .section-title { color: white; }
+  .benefits .section-subtitle { color: rgba(255, 255, 255, 0.75); }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .benefit { text-align: center; padding: 10px; }
+  .benefit-num {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .benefit h5 { font-size: 17px; margin-bottom: 6px; }
+  .benefit p { color: rgba(255, 255, 255, 0.7); font-size: 14px; }
+
+  /* Pricing */
+  .pricing-table {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .pricing-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 18px 26px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  .pricing-row.header {
+    background: var(--primary-dark);
+    color: white;
+    font-weight: 600;
+  }
+  .pricing-row.header .old { color: rgba(255,255,255,0.7); }
+  .pricing-row .old { color: var(--text-muted); text-decoration: line-through; }
+  .pricing-row .new { color: var(--accent); font-weight: 700; font-size: 17px; }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+    letter-spacing: -0.5px;
+  }
+  .about-text p { color: var(--text-muted); margin-bottom: 14px; font-size: 16px; }
+  .about-image {
+    background: linear-gradient(135deg, var(--accent-soft), var(--primary));
+    border-radius: 20px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    padding: 30px;
+  }
+
+  /* Contacts */
+  .contacts { background: #F5EFE3; }
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+  .contact-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid var(--border);
+  }
+  .contact-card h4 { color: var(--primary-dark); font-size: 20px; margin-bottom: 14px; }
+  .contact-card .address { font-size: 16px; margin-bottom: 8px; }
+  .contact-card .phone {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    margin: 10px 0 6px;
+  }
+  .contact-card .hours { color: var(--text-muted); font-size: 14px; }
+
+  /* Footer */
+  footer {
+    background: var(--primary-dark);
+    color: rgba(255,255,255,0.85);
+    padding: 40px 0 24px;
+    font-size: 14px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 20px;
+    margin-bottom: 16px;
+  }
+  footer a { color: var(--accent-soft); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .hero h1 { font-size: 36px; }
+    .hero-grid, .about-grid, .contacts-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .section-title { font-size: 28px; }
+    .pricing-row { grid-template-columns: 1.5fr 1fr 1fr; padding: 14px 16px; font-size: 14px; }
+  }
+  @media (max-width: 560px) {
+    .services-grid, .benefits-grid { grid-template-columns: 1fr; }
+    .hero-badges { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Nova<span>Glow</span> Studio</div>
+    <nav>
+      <ul>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#pricing">Цены</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+78435552233" class="header-phone">+7 (843) 555-22-33</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Лазерная эпиляция в <em>Казани</em> на аппарате нового поколения</h1>
+      <p class="lead">Гладкая кожа без боли и раздражений. Работаем с любым фототипом и любым цветом волос — результат заметен уже после первой процедуры.</p>
+      <div class="hero-cta">
+        <a href="#contacts" class="btn btn-primary">Записаться со скидкой 40%</a>
+        <a href="#services" class="btn btn-secondary">Смотреть услуги</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><strong>9+</strong><span>лет опыта</span></div>
+        <div class="hero-badge"><strong>18 000</strong><span>довольных клиентов</span></div>
+        <div class="hero-badge"><strong>2</strong><span>салона в городе</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Запись на бесплатную консультацию</h3>
+      <form onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами в течение 15 минут.');">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="tel" placeholder="Телефон" required>
+        <button type="submit" class="btn btn-primary">Записаться</button>
+        <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="services">
+  <div class="container">
+    <h2 class="section-title">Наши услуги</h2>
+    <p class="section-subtitle">Направления, которые закрывают главные задачи по уходу за кожей и удалению нежелательных волос</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">★</div>
+        <h4>Лазерная эпиляция</h4>
+        <p>Удаление волос на лице и теле на диодном лазере с системой охлаждения.</p>
+        <div class="price">от 590 ₽</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Элос-омоложение</h4>
+        <p>Комплексная процедура против морщин, пигментации и расширенных пор.</p>
+        <div class="price">от 2 400 ₽</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◆</div>
+        <h4>Удаление сосудов</h4>
+        <p>Безопасное устранение купероза, сосудистых звёздочек и покраснений.</p>
+        <div class="price">от 1 200 ₽</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">●</div>
+        <h4>Пилинги лица</h4>
+        <p>Подбираем программу под ваш тип кожи и сезон — без реабилитации.</p>
+        <div class="price">от 1 800 ₽</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">▲</div>
+        <h4>Карбоновый пилинг</h4>
+        <p>Мгновенное сияние, сужение пор и выравнивание тона за один визит.</p>
+        <div class="price">от 3 200 ₽</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✧</div>
+        <h4>Уход за кожей</h4>
+        <p>Чистки, увлажняющие и антивозрастные программы от косметолога.</p>
+        <div class="price">от 2 100 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block benefits">
+  <div class="container">
+    <h2 class="section-title">Почему выбирают NovaGlow</h2>
+    <p class="section-subtitle">Мы совмещаем сертифицированную технику, опытных мастеров и честные цены</p>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-num">01</div>
+        <h5>Медицинская лицензия</h5>
+        <p>Все процедуры проводятся в сертифицированных кабинетах</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num">02</div>
+        <h5>Аппараты премиум-класса</h5>
+        <p>Используем диодные и александритовые лазеры последнего поколения</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num">03</div>
+        <h5>Комфорт и безопасность</h5>
+        <p>Охлаждающая насадка и подбор мощности под ваш фототип</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num">04</div>
+        <h5>Понятные цены</h5>
+        <p>Без скрытых доплат — стоимость фиксируется до начала курса</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricing">
+  <div class="container">
+    <h2 class="section-title">Прайс на популярные зоны</h2>
+    <p class="section-subtitle">Действует акция: скидка 40% на первый визит при записи через сайт</p>
+    <div class="pricing-table">
+      <div class="pricing-row header">
+        <div>Зона</div>
+        <div class="old">Обычная цена</div>
+        <div>По акции</div>
+      </div>
+      <div class="pricing-row">
+        <div>Верхняя губа</div>
+        <div class="old">990 ₽</div>
+        <div class="new">590 ₽</div>
+      </div>
+      <div class="pricing-row">
+        <div>Подмышечные впадины</div>
+        <div class="old">1 700 ₽</div>
+        <div class="new">990 ₽</div>
+      </div>
+      <div class="pricing-row">
+        <div>Голени полностью</div>
+        <div class="old">4 500 ₽</div>
+        <div class="new">2 690 ₽</div>
+      </div>
+      <div class="pricing-row">
+        <div>Бикини глубокое</div>
+        <div class="old">3 800 ₽</div>
+        <div class="new">2 280 ₽</div>
+      </div>
+      <div class="pricing-row">
+        <div>Руки полностью</div>
+        <div class="old">3 600 ₽</div>
+        <div class="new">2 160 ₽</div>
+      </div>
+      <div class="pricing-row">
+        <div>Комплекс «Всё тело»</div>
+        <div class="old">14 900 ₽</div>
+        <div class="new">8 940 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <h2>Студия эстетической косметологии в центре Казани</h2>
+      <p>NovaGlow Studio — это команда сертифицированных врачей-косметологов и лазерных мастеров, которые с 2016 года помогают клиентам чувствовать себя увереннее в собственной коже.</p>
+      <p>Мы работаем только на проверенном оборудовании от европейских и корейских производителей, а каждый специалист проходит повышение квалификации не реже двух раз в год.</p>
+      <p>В двух наших салонах вы получите индивидуальный протокол ухода, честную оценку количества процедур и сопровождение мастера на всём курсе.</p>
+    </div>
+    <div class="about-image">
+      Светло и спокойно.<br>Как должно быть в хорошей студии.
+    </div>
+  </div>
+</section>
+
+<section class="block contacts" id="contacts">
+  <div class="container">
+    <h2 class="section-title">Наши салоны</h2>
+    <p class="section-subtitle">Два удобных адреса в Казани — рядом с метро и с бесплатной парковкой</p>
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <h4>NovaGlow на Баумана</h4>
+        <div class="address">г. Казань, ул. Баумана, 25, 2 этаж</div>
+        <a href="tel:+78435552233" class="phone">+7 (843) 555-22-33</a>
+        <div class="hours">Ежедневно с 09:00 до 21:00</div>
+      </div>
+      <div class="contact-card">
+        <h4>NovaGlow на Победы</h4>
+        <div class="address">г. Казань, пр. Победы, 140, ТРК «Созвездие», 3 этаж</div>
+        <a href="tel:+78435554488" class="phone">+7 (843) 555-44-88</a>
+        <div class="hours">Ежедневно с 10:00 до 22:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="logo" style="color: white;">Nova<span>Glow</span> Studio</div>
+        <p style="margin-top: 6px; color: rgba(255,255,255,0.6);">Студия лазерной эпиляции и косметологии</p>
+      </div>
+      <div>
+        <p>Email: <a href="mailto:hello@novaglow.example">hello@novaglow.example</a></p>
+        <p>Телефон: <a href="tel:+78435552233">+7 (843) 555-22-33</a></p>
+      </div>
+    </div>
+    <p style="color: rgba(255,255,255,0.55);">© 2026 NovaGlow Studio. Все материалы носят демонстрационный характер.</p>
+  </div>
+</footer>
+
+</body>
+</html>
