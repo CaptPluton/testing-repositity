@@ -1,0 +1,18 @@
+{
+  "_schema": {
+    "id": "уникальный id: домен или email",
+    "company": "название компании",
+    "website": "сайт",
+    "contact_name": "имя контакта или null",
+    "email": "публичный email",
+    "source": "где найден",
+    "status": "drafted | sent | replied | negotiating | call_scheduled | escalated | not_interested | unsubscribed",
+    "thread_id": "id цепочки Gmail после отправки",
+    "followups_sent": 0,
+    "created_at": "YYYY-MM-DD",
+    "last_activity": "YYYY-MM-DD",
+    "notes": "персонализация, интересы, договорённости",
+    "history": [{ "date": "YYYY-MM-DD", "action": "что сделано", "details": "подробности" }]
+  },
+  "leads": []
+}

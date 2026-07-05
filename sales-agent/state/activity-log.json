@@ -1,0 +1,5 @@
+{
+  "_schema": "days: счётчики по датам (UTC); cold_drafts — холодные черновики за день (лимит из config), followup_drafts, reply_drafts, calls_scheduled, escalations",
+  "last_inbox_check": null,
+  "days": {}
+}
