@@ -11,5 +11,10 @@
       "escalations": 0,
       "note": "первый запуск вручную; 12 лидов найдено (бьюти 4, обучение 4, медицина 4), 10 писем в outbox/2026-07-06-cold-emails.md, 2 лида в резерве"
     }
+  },
+  "report": {
+    "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1z29MQrQqSTujSEeA9MjtzId4oj52D3-HKNFjSnkWXRw/edit",
+    "uploaded_at": "2026-07-06",
+    "note": "Google Таблица генерируется из state/*.json скриптом report/build_report.py; при обновлении загружается свежая версия на Диск"
   }
 }
