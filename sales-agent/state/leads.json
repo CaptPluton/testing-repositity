@@ -70,6 +70,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №1 (Gmail-черновики заблокированы разрешениями)"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r-1668273299150217890; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Идея по записям для клиники «Сибирская»",
@@ -85,7 +90,7 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -113,6 +118,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №2"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r4585255502297096114; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Пациенты из ВКонтакте для КВК в Академгородке",
@@ -128,7 +138,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -156,6 +166,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №3"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r-716159303880908996; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Онлайн-запись и трафик для студии LAKи",
@@ -171,7 +186,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -199,6 +214,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №4"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r9211626465716781546; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "SPA для двоих — недооценённый сегмент LAKSMI",
@@ -214,7 +234,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -242,6 +262,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №5"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r4066030100055209124; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Ученики из районов у метро для Star Talk",
@@ -257,7 +282,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -285,6 +310,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №6"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r-6868705108311401327; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Родители из Директа для Hello World",
@@ -300,7 +330,7 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -328,6 +358,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №7"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r-4190827750891239024; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Ученики на курсы рисования из ВКонтакте",
@@ -343,7 +378,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -371,6 +406,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №8"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r-4034436074856231078; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Пациентки для «Лика Клиник» — не только по рекомендациям",
@@ -386,7 +426,7 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -414,6 +454,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №9"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r-6437618323859254642; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Свои пациенты вместо агрегаторов — для «Классик Дент»",
@@ -429,7 +474,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -457,6 +502,11 @@
           "date": "2026-07-06",
           "action": "письмо подготовлено",
           "details": "outbox/2026-07-06-cold-emails.md №10"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "черновик создан в Gmail",
+          "details": "draft_id r374631223620468279; Яна отправляет из папки «Черновики»"
         }
       ],
       "subject": "Прямые записи для центра «Я здоров!»",
@@ -472,7 +522,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": false,
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
         "thread_id": null,

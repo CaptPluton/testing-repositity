@@ -1,7 +1,7 @@
 {
   "_schema": "days: счётчики по датам в поясе Asia/Omsk (cold_drafts, followup_drafts, reply_drafts, confirmed_sent, calls_scheduled, escalations); connectors: ok|down; last_run_at по типам запусков; flags: одноразовые алерты",
   "last_inbox_check": null,
-  "delivery_mode": "outbox — запись в Gmail заблокирована разрешениями коннектора; письма сохраняются в sales-agent/outbox/ и отправляются Яной вручную",
+  "delivery_mode": "gmail-drafts — коннектор переподключён 06.07, письма кладутся черновиками; outbox остаётся фолбэком",
   "days": {
     "2026-07-06": {
       "cold_drafts": 10,
@@ -20,8 +20,8 @@
     "note": "канонический отчёт: Google Таблица из CSV (build_report.py --csv); каждую пятницу создаётся новая датированная версия. Старая 3-вкладочная таблица 1z29MQ... устарела, можно удалить"
   },
   "connectors": {
-    "gmail_read": "down",
-    "gmail_write": "down",
+    "gmail_read": "ok",
+    "gmail_write": "ok",
     "calendar": "ok",
     "drive": "ok",
     "asana": "ok",
@@ -33,7 +33,7 @@
     "weekly": null
   },
   "flags": {
-    "gmail_down_notified": "2026-07-06",
+    "gmail_down_notified": null,
     "pending_replies_notified_date": null,
     "inbox_stale_notified": null
   },
