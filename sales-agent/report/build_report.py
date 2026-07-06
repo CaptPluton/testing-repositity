@@ -11,8 +11,14 @@
 Правила метрик: все rate — от подтверждённо отправленных (sent_at есть);
 bounced исключается из знаменателя reply rate. Открытия не трекаются.
 
-Запуск:  python3 build_report.py           → report.xlsx
+Запуск:  python3 build_report.py           → report.xlsx (архив в git)
          python3 build_report.py --json    → метрики недельных когорт в stdout (для weekly-review)
+         python3 build_report.py --csv     → полный отчёт одним CSV в stdout; этот текст
+                                             загружается на Google Диск (create_file,
+                                             contentMimeType text/csv, textContent) и
+                                             конвертируется в Google Таблицу. Это ОСНОВНОЙ
+                                             путь публикации: передача бинарного xlsx через
+                                             base64 ненадёжна, CSV — надёжен.
 
 Битые даты не валят сборку: значение попадает в лист «Журнал» пустым,
 а предупреждение — в stderr и в results["warnings"] (--json).
@@ -377,11 +383,102 @@ def xlsx_mode(rows, weekly):
         print("WARN:", w, file=sys.stderr)
 
 
+def csv_mode(rows, weekly):
+    """Полный отчёт одним CSV-текстом (блоки друг под другом) для Google Диска."""
+    import csv as _csv
+    import io
+    from datetime import date as _date
+    out = io.StringIO()
+    w = _csv.writer(out)
+    sent_rows = [r for r in rows if r["is_sent"]]
+    delivered = [r for r in sent_rows if not r["is_bounced"]]
+    replies = [r for r in delivered if r["is_replied"]]
+    calls = [r for r in rows if r["is_call"]]
+    w.writerow(["OMG — ОТЧЁТ ПО ХОЛОДНОЙ РАССЫЛКЕ", f"обновлено {_date.today().strftime('%d.%m.%Y')}", "источник: CRM агента (git)"])
+    w.writerow([])
+    w.writerow(["=== ВОРОНКА (всё время) ==="])
+    for name, val in [("Лидов в базе", len(rows)),
+                      ("Подготовлено, отправка не подтверждена", sum(1 for r in rows if r["lead"].get("status") == "drafted")),
+                      ("Отправлено (подтверждено)", len(sent_rows)),
+                      ("Bounce", len(sent_rows) - len(delivered)),
+                      ("Ответов", len(replies)),
+                      ("Reply rate", f"{len(replies)/len(delivered):.1%}" if delivered else "—"),
+                      ("Созвонов", len(calls)),
+                      ("Конверсия в созвон", f"{len(calls)/len(delivered):.1%}" if delivered else "—"),
+                      ("Клиентов", sum(1 for r in rows if r["lead"].get("status") == "client"))]:
+        w.writerow([name, val])
+    w.writerow([])
+    w.writerow(["=== ПО НИШАМ (от доставленных) ==="])
+    w.writerow(["Ниша", "Отправлено", "Bounce", "Ответов", "Reply rate", "Созвонов"])
+    groups = defaultdict(list)
+    for r in sent_rows:
+        groups[NICHE_RU.get(r["lead"].get("niche"), "—")].append(r)
+    for seg in sorted(groups):
+        g = groups[seg]
+        dlv = [r for r in g if not r["is_bounced"]]
+        rep = [r for r in dlv if r["is_replied"]]
+        w.writerow([seg, len(g), len(g) - len(dlv), len(rep),
+                    f"{len(rep)/len(dlv):.1%}" if dlv else "—",
+                    sum(1 for r in dlv if r["is_call"])])
+    w.writerow([])
+    w.writerow(["=== ЖУРНАЛ РАССЫЛКИ ==="])
+    w.writerow(["№", "Дата подготовки", "Дата отправки", "Компания", "Ниша", "Город", "Контакт",
+                "Email", "Тип ящика", "Сайт", "Тема письма", "Вариант", "Статус", "Дата ответа",
+                "Фоллоу-апы", "Дата созвона", "Заметки"])
+    for i, r in enumerate(rows, 1):
+        l = r["lead"]
+        w.writerow([i, l.get("created_at"), l.get("sent_at") or "", l.get("company"),
+                    NICHE_RU.get(l.get("niche"), l.get("niche")), l.get("city"),
+                    l.get("contact_name") or "—", l.get("email"), l.get("email_type"),
+                    l.get("website"), l.get("subject") or "—", l.get("variant") or "—",
+                    STATUS_RU.get(l.get("status"), l.get("status")), l.get("replied_at") or "",
+                    l.get("followups_sent", 0), (l.get("call_at") or "")[:10], l.get("notes", "")])
+    w.writerow([])
+    w.writerow(["=== КОГОРТЫ ПО НЕДЕЛЯМ ОТПРАВКИ ==="])
+    w.writerow(["Неделя отправки", "Отправлено", "Bounce", "Доставлено", "Ответы ≤3д", "≤7д", "≤14д",
+                "Всего ответов", "Reply rate", "Созвонов", "Дозрела?"])
+    cohorts = cohort_metrics(rows)
+    if not cohorts:
+        w.writerow(["— данных пока нет: подтверждённых отправок не было —"])
+    for wk, m in cohorts.items():
+        w.writerow([wk, m["sent"], m["bounced"], m["delivered"], m["replies_3d"], m["replies_7d"],
+                    m["replies_14d"], m["replies_total"],
+                    f"{m['reply_rate']:.1%}" if m["reply_rate"] is not None else "—",
+                    m["calls"], "да" if m["mature"] else "нет (<14 дн)"])
+    w.writerow([])
+    w.writerow(["=== ЭКСПЕРИМЕНТЫ И РЕШЕНИЯ ==="])
+    w.writerow(["Неделя", "ID", "Суть", "Фактор/файл", "Вариант A", "Вариант B", "Статус", "Решение/эффект"])
+    for wk in sorted(weekly):
+        wdata = weekly.get(wk)
+        if not isinstance(wdata, dict):
+            continue
+        for e in wdata.get("experiments", []):
+            w.writerow([wk, e.get("id"), e.get("hypothesis"), e.get("factor"), e.get("variant_a"),
+                        e.get("variant_b"), e.get("status"), e.get("decision") or ""])
+        for d in wdata.get("decisions", []):
+            w.writerow([wk, d.get("id"), d.get("what_changed"), d.get("file"), "", "", "применено",
+                        d.get("expected_effect")])
+    w.writerow([])
+    w.writerow(["=== ВЫВОДЫ НЕДЕЛЬ ==="])
+    for wk in sorted(weekly):
+        wdata = weekly.get(wk)
+        if isinstance(wdata, dict):
+            w.writerow([wk, wdata.get("conclusions", "")])
+    if warnings:
+        w.writerow([])
+        w.writerow(["=== ПРОБЛЕМЫ ДАННЫХ ==="])
+        for warn in warnings:
+            w.writerow([warn])
+    print(out.getvalue())
+
+
 def main():
     leads, weekly = load()
     rows = enrich(leads)
     if "--json" in sys.argv:
         json_mode(rows, weekly)
+    elif "--csv" in sys.argv:
+        csv_mode(rows, weekly)
     else:
         xlsx_mode(rows, weekly)
 

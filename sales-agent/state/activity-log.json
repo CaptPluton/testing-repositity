@@ -14,10 +14,10 @@
     }
   },
   "report": {
-    "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1z29MQrQqSTujSEeA9MjtzId4oj52D3-HKNFjSnkWXRw/edit",
+    "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1FiOsljFOazEPX52-kJ4gi3hmAk0GJ5hNo-OewH9ZE1g/edit",
+    "file_id": "1FiOsljFOazEPX52-kJ4gi3hmAk0GJ5hNo-OewH9ZE1g",
     "uploaded_at": "2026-07-06",
-    "note": "Google Таблица генерируется из state/*.json скриптом report/build_report.py; при обновлении загружается свежая версия на Диск",
-    "file_id": "1z29MQrQqSTujSEeA9MjtzId4oj52D3-HKNFjSnkWXRw"
+    "note": "канонический отчёт: Google Таблица из CSV (build_report.py --csv); каждую пятницу создаётся новая датированная версия. Старая 3-вкладочная таблица 1z29MQ... устарела, можно удалить"
   },
   "connectors": {
     "gmail_read": "down",
