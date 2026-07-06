@@ -60,7 +60,7 @@
       "email": "sibirskaya.nsk@mail.ru",
       "source": "WebSearch, email подтверждён на главной сайта",
       "niche": "beauty",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -80,10 +80,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r8410077324937614380; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Идея по записям для клиники «Сибирская»",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -95,7 +100,7 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -113,7 +118,7 @@
       "email": "kvk_12@mail.ru",
       "source": "WebSearch, email подтверждён на главной сайта",
       "niche": "beauty",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -133,10 +138,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r-2012769244332467119; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Пациенты из ВКонтакте для КВК в Академгородке",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -148,7 +158,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -166,7 +176,7 @@
       "email": "lak-nail@mail.ru",
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "beauty",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -186,10 +196,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r-5432438190642886545; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Онлайн-запись и трафик для студии LAKи",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -201,7 +216,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -219,7 +234,7 @@
       "email": "info@spa-kazan.com",
       "source": "WebSearch, email подтверждён на главной сайта",
       "niche": "beauty",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -239,10 +254,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r-1846045486236120472; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "SPA для двоих — недооценённый сегмент LAKSMI",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -254,7 +274,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -272,7 +292,7 @@
       "email": "english@start2talk.ru",
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "education",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -297,10 +317,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r-6097997962345498225; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Ученики из районов у метро для Star Talk",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -312,7 +337,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -330,7 +355,7 @@
       "email": "hello@hwschool.online",
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "education",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -355,10 +380,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r3485435163702964784; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Родители из Директа для Hello World",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -370,7 +400,7 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -388,7 +418,7 @@
       "email": "mail@art-idea.info",
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "education",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -413,10 +443,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r-7273195864015373264; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Ученики на курсы рисования из ВКонтакте",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -428,7 +463,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -446,7 +481,7 @@
       "email": "lika_clinic@mail.ru",
       "source": "WebSearch, email подтверждён на сайте",
       "niche": "medicine",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -471,10 +506,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r6617417463025168286; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Пациентки для «Лика Клиник» — не только по рекомендациям",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -486,7 +526,7 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -504,7 +544,7 @@
       "email": "klassik-dent@mail.ru",
       "source": "WebSearch, email подтверждён на странице «О клинике»",
       "niche": "medicine",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -529,10 +569,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r739310406609931321; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Свои пациенты вместо агрегаторов — для «Классик Дент»",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -544,7 +589,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
@@ -562,7 +607,7 @@
       "email": "info@med-nsk.ru",
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "medicine",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -587,10 +632,15 @@
           "date": "2026-07-06",
           "action": "черновик обновлён (v3 — финальный)",
           "details": "добавлен кейс с цифрами, источники обезличены; актуальный draft_id r7277179518620462888; старые версии черновиков Яна удаляет"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "отправлено",
+          "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
         }
       ],
       "subject": "Прямые записи для центра «Я здоров!»",
-      "sent_at": null,
+      "sent_at": "2026-07-06",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -602,7 +652,7 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
         "thread_id": null,
