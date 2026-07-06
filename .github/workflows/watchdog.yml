@@ -1,0 +1,53 @@
+name: Sales agent watchdog
+
+# Внешний контроль пульса агента-продажника: если в будни на ветке агента
+# не было коммитов больше 26 часов — значит, cron-запуски умерли (сессия
+# погибла, коннектор отвалился). Создаёт issue, чтобы Яна перезапустила.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1-5'   # 12:00 Asia/Omsk, будни
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/sales-agent-email-odes7k
+          fetch-depth: 1
+      - name: Check last commit age
+        id: age
+        run: |
+          last=$(git log -1 --format=%ct)
+          now=$(date +%s)
+          hours=$(( (now - last) / 3600 ))
+          echo "hours=$hours" >> "$GITHUB_OUTPUT"
+          echo "Last commit was $hours hours ago"
+      - name: Open issue if stale
+        if: ${{ fromJSON(steps.age.outputs.hours) > 26 }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const hours = ${{ steps.age.outputs.hours }};
+            const title = 'Агент-продажник молчит: нет коммитов ' + hours + ' ч';
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'sales-agent-watchdog',
+            });
+            if (open.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title,
+                labels: ['sales-agent-watchdog'],
+                body: 'Ветка `claude/sales-agent-email-odes7k` не обновлялась ' + hours +
+                  ' часов в рабочие дни. Вероятно, умерла сессия Claude с cron-запусками.\n\n' +
+                  'Что сделать: открыть сессию агента на claude.ai/code и написать «проверь расписание запусков» — ' +
+                  'агент восстановит cron-задачи. Либо запустить сценарии вручную: prospecting и inbox из sales-agent/prompts/.',
+              });
+            }

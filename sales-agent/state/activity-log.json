@@ -1,5 +1,5 @@
 {
-  "_schema": "days: счётчики по датам (UTC); cold_drafts — холодные письма за день (лимит из config), followup_drafts, reply_drafts, calls_scheduled, escalations",
+  "_schema": "days: счётчики по датам в поясе Asia/Omsk; connectors: ok|down; last_run_at: ISO по типам запусков; flags: одноразовые алерты",
   "last_inbox_check": null,
   "delivery_mode": "outbox — запись в Gmail заблокирована разрешениями коннектора; письма сохраняются в sales-agent/outbox/ и отправляются Яной вручную",
   "days": {
@@ -15,6 +15,27 @@
   "report": {
     "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1z29MQrQqSTujSEeA9MjtzId4oj52D3-HKNFjSnkWXRw/edit",
     "uploaded_at": "2026-07-06",
-    "note": "Google Таблица генерируется из state/*.json скриптом report/build_report.py; при обновлении загружается свежая версия на Диск"
+    "note": "Google Таблица генерируется из state/*.json скриптом report/build_report.py; при обновлении загружается свежая версия на Диск",
+    "file_id": "1z29MQrQqSTujSEeA9MjtzId4oj52D3-HKNFjSnkWXRw"
+  },
+  "connectors": {
+    "gmail_read": "down",
+    "gmail_write": "down",
+    "calendar": "ok",
+    "drive": "ok",
+    "asana": "ok",
+    "push": "ok"
+  },
+  "last_run_at": {
+    "prospecting": "2026-07-06T02:10:00Z",
+    "inbox": null,
+    "weekly": null
+  },
+  "flags": {
+    "gmail_down_notified": "2026-07-06",
+    "pending_replies_notified_date": null
+  },
+  "asana": {
+    "send_task_gid_2026-07-06": "1216283873622824"
   }
 }

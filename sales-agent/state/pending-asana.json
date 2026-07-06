@@ -1,0 +1,4 @@
+{
+  "_schema": "очередь Asana-действий при недоступности коннектора: [{type, payload, queued_at}]",
+  "queue": []
+}

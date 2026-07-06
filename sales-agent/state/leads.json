@@ -1,25 +1,54 @@
 {
   "_schema": {
-    "id": "уникальный id: домен или email",
-    "company": "название компании",
+    "id": "домен сайта (для freemail-контакта без сайта — полный email)",
+    "company": "название",
     "website": "сайт",
-    "contact_name": "имя контакта или null",
+    "city": "город",
+    "niche": "beauty|education|medicine",
+    "contact_name": "имя ЛПР или null",
+    "lpr_vk": "ссылка VK ЛПР/сообщества или null",
+    "lpr_tg": "ник TG или null",
     "email": "публичный email",
-    "source": "где найден",
-    "status": "backlog | drafted | sent | replied | negotiating | call_scheduled | escalated | not_interested | unsubscribed",
-    "thread_id": "id цепочки Gmail после отправки",
+    "email_type": "personal|generic",
+    "has_contact_name": true,
+    "source": "как найден",
+    "source_channel": "websearch|referral|inbound|reactivation",
+    "subject": "тема холодного письма",
+    "variant": "A|B|null",
+    "experiment_id": "id эксперимента или null",
+    "status": "backlog|drafted|sent|bounced|replied|negotiating|call_scheduled|call_done|client|lost|escalated|no_response|not_interested|unsubscribed",
+    "sent_at": "YYYY-MM-DD подтверждённой отправки холодного письма или null",
+    "replied_at": "YYYY-MM-DD первого ответа или null",
+    "call_at": "ISO datetime созвона с поясом или null",
+    "call_outcome": "held|no_show|won|lost|null",
     "followups_sent": 0,
+    "followup_history": [
+      {
+        "n": 1,
+        "prepared": "YYYY-MM-DD",
+        "sent": "YYYY-MM-DD|null",
+        "channel": "email|vk|tg"
+      }
+    ],
+    "pending_draft": false,
+    "bounce_reason": "строка или null",
+    "external": {
+      "thread_id": "Gmail thread",
+      "calendar_event_id": "событие календаря",
+      "asana_task_gid": "задача Asana",
+      "asana_client_project_gid": "клиентский проект"
+    },
     "created_at": "YYYY-MM-DD",
     "last_activity": "YYYY-MM-DD",
-    "notes": "персонализация, интересы, договорённости",
+    "notes": "персонализация/договорённости",
     "history": [
       {
         "date": "YYYY-MM-DD",
         "action": "что сделано",
-        "details": "подробности"
+        "details": "подробности",
+        "message_id": "для входящих"
       }
-    ],
-    "subject": "тема холодного письма"
+    ]
   },
   "leads": [
     {
@@ -32,7 +61,6 @@
       "source": "WebSearch, email подтверждён на главной сайта",
       "niche": "beauty",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -44,7 +72,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №1 (Gmail-черновики заблокированы разрешениями)"
         }
       ],
-      "subject": "Идея по записям для клиники «Сибирская»"
+      "subject": "Идея по записям для клиники «Сибирская»",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": true,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "kvk-nsk.ru",
@@ -56,7 +104,6 @@
       "source": "WebSearch, email подтверждён на главной сайта",
       "niche": "beauty",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -68,7 +115,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №2"
         }
       ],
-      "subject": "Пациенты из ВКонтакте для КВК в Академгородке"
+      "subject": "Пациенты из ВКонтакте для КВК в Академгородке",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "lakisalon.ru",
@@ -80,7 +147,6 @@
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "beauty",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -92,7 +158,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №3"
         }
       ],
-      "subject": "Онлайн-запись и трафик для студии LAKи"
+      "subject": "Онлайн-запись и трафик для студии LAKи",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "spa-kazan.com",
@@ -104,7 +190,6 @@
       "source": "WebSearch, email подтверждён на главной сайта",
       "niche": "beauty",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -116,7 +201,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №4"
         }
       ],
-      "subject": "SPA для двоих — готовый сегмент для рекламы"
+      "subject": "SPA для двоих — готовый сегмент для рекламы",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "start2talk.ru",
@@ -128,7 +233,6 @@
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "education",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -140,7 +244,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №5"
         }
       ],
-      "subject": "Ученики из районов у метро для Star Talk"
+      "subject": "Ученики из районов у метро для Star Talk",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "hwschool.online",
@@ -152,7 +276,6 @@
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "education",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -164,7 +287,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №6"
         }
       ],
-      "subject": "Родители из Директа для Hello World"
+      "subject": "Родители из Директа для Hello World",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": true,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "art-idea.info",
@@ -176,7 +319,6 @@
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "education",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -188,7 +330,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №7"
         }
       ],
-      "subject": "Ученики на курсы рисования из ВКонтакте"
+      "subject": "Ученики на курсы рисования из ВКонтакте",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "likaclinic.ru",
@@ -200,7 +362,6 @@
       "source": "WebSearch, email подтверждён на сайте",
       "niche": "medicine",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -212,7 +373,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №8"
         }
       ],
-      "subject": "Пациентки для «Лика Клиник» — не только по рекомендациям"
+      "subject": "Пациентки для «Лика Клиник» — не только по рекомендациям",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": true,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "classic-dent.ru",
@@ -224,7 +405,6 @@
       "source": "WebSearch, email подтверждён на странице «О клинике»",
       "niche": "medicine",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -236,7 +416,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №9"
         }
       ],
-      "subject": "Свои пациенты вместо агрегаторов — для «Классик Дент»"
+      "subject": "Свои пациенты вместо агрегаторов — для «Классик Дент»",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "med-nsk.ru",
@@ -248,7 +448,6 @@
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "medicine",
       "status": "drafted",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -260,7 +459,27 @@
           "details": "outbox/2026-07-06-cold-emails.md №10"
         }
       ],
-      "subject": "Прямые записи для центра «Я здоров!»"
+      "subject": "Прямые записи для центра «Я здоров!»",
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "progkids.com",
@@ -272,7 +491,6 @@
       "source": "WebSearch",
       "niche": "education",
       "status": "backlog",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -284,7 +502,27 @@
           "details": "не вошёл в дневную квоту 10"
         }
       ],
-      "subject": null
+      "subject": null,
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     },
     {
       "id": "clinica-prizvanie.ru",
@@ -296,7 +534,6 @@
       "source": "WebSearch",
       "niche": "medicine",
       "status": "backlog",
-      "thread_id": null,
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
@@ -308,7 +545,27 @@
           "details": "не вошёл в дневную квоту 10"
         }
       ],
-      "subject": null
+      "subject": null,
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": false,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     }
   ]
 }
