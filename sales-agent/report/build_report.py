@@ -38,7 +38,9 @@ STATUS_RU = {
 NICHE_RU = {"beauty": "Бьюти", "education": "Обучение", "medicine": "Медицина"}
 REPLIED_STATUSES = {"replied", "negotiating", "call_scheduled", "call_done",
                     "client", "lost", "escalated", "not_interested", "unsubscribed"}
-CALL_STATUSES = {"call_scheduled", "call_done", "client", "lost"}
+# lost намеренно не входит: проигрыш возможен и без созвона (на этапе переписки);
+# созвон считается по статусам ниже или по фактической дате call_at
+CALL_STATUSES = {"call_scheduled", "call_done", "client"}
 POSITIVE_STATUSES = {"negotiating", "call_scheduled", "call_done", "client"}
 
 warnings = []
@@ -291,8 +293,10 @@ def xlsx_mode(rows, weekly):
     cut_block("По типу ящика", lambda l: l.get("email_type"))
     cut_block("По наличию имени ЛПР", lambda l: "имя известно" if l.get("has_contact_name") else "без имени")
     rr += 2
-    ws2.cell(row=rr, column=1, value="Ориентиры: reply rate 3–7% норма, <2% после 50 писем — менять тему/оффер; "
-             "ответы без созвонов — менять CTA; отписки >10% — менять базу. Решения — только по дозревшим когортам (лист 3).").alignment = Alignment(wrap_text=True)
+    ws2.cell(row=rr, column=1, value="Ориентиры (источник — playbook.md, «Ориентиры метрик» и «Ворота выборки»): reply rate 3–7% норма, "
+             "<2% при ≥50 доставленных — тревога; bounce >5% — тревога; тема/абзац — только по A/B ≥40 отправок на вариант; "
+             "отказ от ниши — 0 ответов на 60 отправках или (bounce+отписки) >15%; пересмотр базы — отписки+жалобы ≥8. "
+             "Решения — только по дозревшим когортам ≥14 дней (лист 3) и через подтверждение Яны.").alignment = Alignment(wrap_text=True)
 
     # ---- 3. Когорты по неделям отправки ----
     ws3 = wb.create_sheet("Когорты по неделям")

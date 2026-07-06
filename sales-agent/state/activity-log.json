@@ -1,5 +1,5 @@
 {
-  "_schema": "days: счётчики по датам в поясе Asia/Omsk; connectors: ok|down; last_run_at: ISO по типам запусков; flags: одноразовые алерты",
+  "_schema": "days: счётчики по датам в поясе Asia/Omsk (cold_drafts, followup_drafts, reply_drafts, confirmed_sent, calls_scheduled, escalations); connectors: ok|down; last_run_at по типам запусков; flags: одноразовые алерты",
   "last_inbox_check": null,
   "delivery_mode": "outbox — запись в Gmail заблокирована разрешениями коннектора; письма сохраняются в sales-agent/outbox/ и отправляются Яной вручную",
   "days": {
@@ -9,7 +9,8 @@
       "reply_drafts": 0,
       "calls_scheduled": 0,
       "escalations": 0,
-      "note": "первый запуск вручную; 12 лидов найдено (бьюти 4, обучение 4, медицина 4), 10 писем в outbox/2026-07-06-cold-emails.md, 2 лида в резерве"
+      "note": "первый запуск вручную в Пн — разовое исключение из правила cold_days (вт-чт); Яне рекомендовано отправить батч во вторник 07.07. 12 лидов найдено, 10 писем в outbox, 2 в резерве",
+      "confirmed_sent": 0
     }
   },
   "report": {
@@ -33,9 +34,11 @@
   },
   "flags": {
     "gmail_down_notified": "2026-07-06",
-    "pending_replies_notified_date": null
+    "pending_replies_notified_date": null,
+    "inbox_stale_notified": null
   },
   "asana": {
-    "send_task_gid_2026-07-06": "1216283873622824"
+    "send_task_gid_2026-07-06": "1216283873622824",
+    "processed_confirmations": []
   }
 }
