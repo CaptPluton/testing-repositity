@@ -292,11 +292,11 @@
       "email": "english@start2talk.ru",
       "source": "WebSearch, email подтверждён на странице контактов",
       "niche": "education",
-      "status": "sent",
+      "status": "negotiating",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "С 2009 г.; филиалы у метро Римская и Домодедовская + онлайн-платформа; нет локального платного трафика по районам",
+      "notes": "С 2009 г.; филиалы у метро Римская и Домодедовская + онлайн-платформа; нет локального платного трафика по районам || ПЕРВЫЙ ОТВЕТ КАМПАНИИ (06.07, лаг ~4,5 ч). Интерес: филиал «Римская». Переписку ведёт Яна.",
       "history": [
         {
           "date": "2026-07-06",
@@ -322,11 +322,19 @@
           "date": "2026-07-06",
           "action": "отправлено",
           "details": "Яна подтвердила отправку в чате (задача Asana закрыта); фоллоу-ап №1 — D+3 (09.07), №2 — D+7 (13.07), №3 — D+14 (20.07)"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "ответ лида (08:35 UTC): «интересно, но только на филиал у Римской, пришлите условия»"
+        },
+        {
+          "date": "2026-07-06",
+          "action": "Яна ответила САМА (11:24 UTC): выслала условия по 2 направлениям — платная реклама и заявки по фиксированной цене, по отдельности или в связке. Ждём ответа; агенту треды start2talk НЕ трогать без согласования, фоллоу-ап при молчании готовить Яне на одобрение через D+3"
         }
       ],
       "subject": "Ученики из районов у метро для Star Talk",
       "sent_at": "2026-07-06",
-      "replied_at": null,
+      "replied_at": "2026-07-06",
       "call_at": null,
       "call_outcome": null,
       "variant": "B",
@@ -340,11 +348,12 @@
       "pending_draft": false,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358d71f161ca7",
         "calendar_event_id": null,
         "asana_task_gid": null,
         "asana_client_project_gid": null
-      }
+      },
+      "reply_lag_days": 0
     },
     {
       "id": "hwschool.online",
@@ -801,11 +810,11 @@
       "email": "info@sovershenstvo-clinic.ru",
       "source": "WebSearch + соцразведка (VK/TG/отзывы), email подтверждён в сниппетах сайта",
       "niche": "beauty",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "С 2017, аппаратная база InMode; раздел «Акции» на сайте — готовые офферы без трафика; врачи Эльвира Асхатовна, Ляйля Рамиловна || Соцсети: VK/TG не находятся; ПроДокторов 29 положительных отзывов || СОЦРАЗВЕДКА v2 (07.07): сайт заявляет ВК и Telegram (сниппеты контактов); IG @sovershenstvo_clinic. Письмо пересобрано: зацепка на разделе «Акции» без утверждений об отсутствии соцсетей",
+      "notes": "С 2017, аппаратная база InMode; раздел «Акции» на сайте — готовые офферы без трафика; врачи Эльвира Асхатовна, Ляйля Рамиловна || Соцсети: VK/TG не находятся; ПроДокторов 29 положительных отзывов || СОЦРАЗВЕДКА v2 (07.07): сайт заявляет ВК и Telegram (сниппеты контактов); IG @sovershenstvo_clinic. Письмо пересобрано: зацепка на разделе «Акции» без утверждений об отсутствии соцсетей || отправлено 07.07 02:35 UTC — НОВЫЙ черновик; Яна сама сменила тему на «Заявки для «Совершенства»»",
       "history": [
         {
           "date": "2026-07-06",
@@ -814,7 +823,7 @@
         }
       ],
       "subject": "Идея по записям для «Совершенства»",
-      "sent_at": null,
+      "sent_at": "2026-07-07",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -826,16 +835,18 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f3a40dd8c9dbc4",
         "calendar_event_id": null,
         "asana_task_gid": null,
         "asana_client_project_gid": null,
         "draft_id": "r7968446135205396815",
-        "superseded_draft_ids": []
-      }
+        "superseded_draft_ids": [],
+        "sent_message_id": "19f3a6e34295b031"
+      },
+      "subject_actual": "Заявки для «Совершенства»"
     },
     {
       "id": "terraspa.ru",
@@ -846,11 +857,11 @@
       "email": "terradel.sol@yandex.ru",
       "source": "WebSearch + соцразведка (VK/TG/отзывы), email подтверждён в сниппетах сайта",
       "niche": "beauty",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "19+ лет, 2 филиала (Восход 14/1, пл. К. Маркса); запись только по телефону; устаревший сайт без трафика || Соцсети: VK vk.com/terradelsol; Фламп/2ГИС 4.5 (~130 отзывов), хвалят косметолога Элеонору Винник и стилиста Татьяну Евдокимову",
+      "notes": "19+ лет, 2 филиала (Восход 14/1, пл. К. Маркса); запись только по телефону; устаревший сайт без трафика || Соцсети: VK vk.com/terradelsol; Фламп/2ГИС 4.5 (~130 отзывов), хвалят косметолога Элеонору Винник и стилиста Татьяну Евдокимову || отправлено 07.07 02:44 UTC (корректный черновик от 06.07)",
       "history": [
         {
           "date": "2026-07-06",
@@ -859,7 +870,7 @@
         }
       ],
       "subject": "Идея по записям для Terra del Sol",
-      "sent_at": null,
+      "sent_at": "2026-07-07",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -871,13 +882,14 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f35a63e1262d1e",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f3a7649f98c57b"
       }
     },
     {
@@ -889,11 +901,11 @@
       "email": "viktoroff2011@gmail.com",
       "source": "WebSearch + соцразведка (VK/TG/отзывы), email подтверждён в сниппетах сайта",
       "niche": "beauty",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Полный комплекс услуг; личный gmail директора — короткий цикл сделки; нет онлайн-записи || Соцсети: VK/IG-ссылки на сайте, активного сообщества нет; Zoon/Фламп: хвалят стилиста Мане (Air Touch), мастеров Светлану и Виктора || СОЦРАЗВЕДКА v2 (07.07): yell.ru заявляет VK/IG; вероятный IG @krasivielyudi_official (принадлежность не подтверждена — тёзки в других городах). Письмо пересобрано: убрано «соцсети почти не живут», мягкая формулировка про карты/сарафан",
+      "notes": "Полный комплекс услуг; личный gmail директора — короткий цикл сделки; нет онлайн-записи || Соцсети: VK/IG-ссылки на сайте, активного сообщества нет; Zoon/Фламп: хвалят стилиста Мане (Air Touch), мастеров Светлану и Виктора || СОЦРАЗВЕДКА v2 (07.07): yell.ru заявляет VK/IG; вероятный IG @krasivielyudi_official (принадлежность не подтверждена — тёзки в других городах). Письмо пересобрано: убрано «соцсети почти не живут», мягкая формулировка про карты/сарафан || отправлено 07.07 02:42 UTC — НОВЫЙ черновик (после соцразведки v2)",
       "history": [
         {
           "date": "2026-07-06",
@@ -902,7 +914,7 @@
         }
       ],
       "subject": "Идея по записям для «Красивых Людей»",
-      "sent_at": null,
+      "sent_at": "2026-07-07",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -914,15 +926,16 @@
       "has_contact_name": true,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f3a40f0f94f695",
         "calendar_event_id": null,
         "asana_task_gid": null,
         "asana_client_project_gid": null,
         "draft_id": "r5748538348482484022",
-        "superseded_draft_ids": []
+        "superseded_draft_ids": [],
+        "sent_message_id": "19f3a744810e1291"
       }
     },
     {
@@ -979,11 +992,11 @@
       "email": "info@profieng.ru",
       "source": "WebSearch + соцразведка (VK/TG/отзывы), email подтверждён в сниппетах сайта",
       "niche": "education",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "IELTS/TOEFL/ЕГЭ + дети 4–12; сезонное окно — набор к учебному году; конкуренты (Skyeng) активно закупают трафик || Соцсети: VK/TG не видны в поиске; 20 отзывов на Kurshub (хвалят цену и расписание); Zoon, 2ГИС || СОЦРАЗВЕДКА v2 (07.07): сайт на странице контактов заявляет YouTube и ВКонтакте; TG — только бот-лидмагнит. Письмо пересобрано: «на сайте заявлены YouTube и ВК», без утверждений об отсутствии",
+      "notes": "IELTS/TOEFL/ЕГЭ + дети 4–12; сезонное окно — набор к учебному году; конкуренты (Skyeng) активно закупают трафик || Соцсети: VK/TG не видны в поиске; 20 отзывов на Kurshub (хвалят цену и расписание); Zoon, 2ГИС || СОЦРАЗВЕДКА v2 (07.07): сайт на странице контактов заявляет YouTube и ВКонтакте; TG — только бот-лидмагнит. Письмо пересобрано: «на сайте заявлены YouTube и ВК», без утверждений об отсутствии || отправлено 07.07 02:37 UTC — УШЛА СТАРАЯ ВЕРСИЯ (формулировка «ВК и TG в поиске почти не видны» — мягкая, риск низкий; сайт ВК заявляет). Новый неотправленный черновик r-1267307485728993365 УДАЛИТЬ. Если ответят про ВК — признать и перевести в пользу: «поэтому и пишем — аудиторию надо развивать рекламой»",
       "history": [
         {
           "date": "2026-07-06",
@@ -992,7 +1005,7 @@
         }
       ],
       "subject": "Ученики к учебному году для Profieng",
-      "sent_at": null,
+      "sent_at": "2026-07-07",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -1004,15 +1017,16 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f35a81837556c3",
         "calendar_event_id": null,
         "asana_task_gid": null,
         "asana_client_project_gid": null,
         "draft_id": "r-1267307485728993365",
-        "superseded_draft_ids": []
+        "superseded_draft_ids": [],
+        "sent_message_id": "19f3a6fc7aaa2b75"
       }
     },
     {
@@ -1159,11 +1173,11 @@
       "email": "centrstomat@mail.ru",
       "source": "WebSearch + соцразведка (VK/TG/отзывы), email подтверждён в сниппетах сайта",
       "niche": "medicine",
-      "status": "drafted",
+      "status": "sent",
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Маржинальные направления: имплантация, хирургия, микроскоп; репутация конвертируется только через карты. dental=true || Соцсети: ВК/TG не видны (Facebook в разведке не учитываем); Яндекс 4.8 (~4 865 оценок), 2ГИС 4.9 (258) || СОЦРАЗВЕДКА v2 (07.07): ВК/TG/IG не найдены ни на сайте, ни поиском (самый чистый кейс), но по правилу «не утверждать отсутствие» формулировка смягчена: «если запись идёт в основном с карт…». Есть заброшенный FB (игнорируем)",
+      "notes": "Маржинальные направления: имплантация, хирургия, микроскоп; репутация конвертируется только через карты. dental=true || Соцсети: ВК/TG не видны (Facebook в разведке не учитываем); Яндекс 4.8 (~4 865 оценок), 2ГИС 4.9 (258) || СОЦРАЗВЕДКА v2 (07.07): ВК/TG/IG не найдены ни на сайте, ни поиском (самый чистый кейс), но по правилу «не утверждать отсутствие» формулировка смягчена: «если запись идёт в основном с карт…». Есть заброшенный FB (игнорируем) || отправлено 07.07 01:55 UTC — НОВЫЙ черновик (v3); Яна сама сменила тему на «Заявки для стоматологий с фиксированной ценой»",
       "history": [
         {
           "date": "2026-07-06",
@@ -1177,7 +1191,7 @@
         }
       ],
       "subject": "Прямые записи для «Центра Стоматологии»",
-      "sent_at": null,
+      "sent_at": "2026-07-07",
       "replied_at": null,
       "call_at": null,
       "call_outcome": null,
@@ -1189,16 +1203,18 @@
       "has_contact_name": false,
       "source_channel": "websearch",
       "followup_history": [],
-      "pending_draft": true,
+      "pending_draft": false,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f3a41d3b1f74df",
         "calendar_event_id": null,
         "asana_task_gid": null,
         "asana_client_project_gid": null,
         "draft_id": "r2572213114726425561",
-        "superseded_draft_ids": []
-      }
+        "superseded_draft_ids": [],
+        "sent_message_id": "19f3a49215715c12"
+      },
+      "subject_actual": "Заявки для стоматологий с фиксированной ценой"
     },
     {
       "id": "timeless-studio.ru",
