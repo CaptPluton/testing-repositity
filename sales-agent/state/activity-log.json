@@ -23,10 +23,10 @@
     }
   },
   "report": {
-    "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1FiOsljFOazEPX52-kJ4gi3hmAk0GJ5hNo-OewH9ZE1g/edit",
-    "file_id": "1FiOsljFOazEPX52-kJ4gi3hmAk0GJ5hNo-OewH9ZE1g",
-    "uploaded_at": "2026-07-06",
-    "note": "канонический отчёт: Google Таблица из CSV (build_report.py --csv); каждую пятницу создаётся новая датированная версия. Старая 3-вкладочная таблица 1z29MQ... устарела, можно удалить"
+    "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1n8mA8ehYcVVaK5Nog8GQ5pMhhCf0DLl8mDvzCrw02tg/edit",
+    "file_id": "1n8mA8ehYcVVaK5Nog8GQ5pMhhCf0DLl8mDvzCrw02tg",
+    "uploaded_at": "2026-07-07",
+    "note": "канонический ЕДИНЫЙ отчёт: многовкладочная Google Таблица (base64-xlsx из build_report.py, формат как у исходной 1z29MQ...). Обновление: по пятницам новая датированная версия тем же способом; CSV-путь (--csv) — фолбэк при сбоях base64. Устарели и можно удалить: 1z29MQ... (старая ручная) и 1FiOslj... (одновкладочная CSV-версия)"
   },
   "connectors": {
     "gmail_read": "ok",
