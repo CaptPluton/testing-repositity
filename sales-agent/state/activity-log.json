@@ -28,14 +28,14 @@
       "calls_scheduled": 0,
       "escalations": 0,
       "confirmed_sent": 0,
-      "note": "батч №3 подготовлен 07.07 по запросу Яны (соцразведка v2 site-first, 3 агента); квота отнесена к 08.07 (ср, cold_day); EXP-001-cta: 5×A/5×B; состав: LAPLAS(A), Laser House(B), МиМиЛО(A), Timeless(B), iDesign(A), ProgKids(B), Триарс(A), БьютиМед(B), Призвание(A), 21 Век(B); резерв пополнен: Giovane (Уфа), МузКласс (НН), Родная клиника (Ростов)"
+      "note": "батч №3 подготовлен 07.07 по запросу Яны (соцразведка v2 site-first, 3 агента); квота отнесена к 08.07 (ср, cold_day); EXP-001-cta: 5×A/5×B; состав: LAPLAS(A), Laser House(B), МиМиЛО(A), Timeless(B), iDesign(A), ProgKids(B), Триарс(A), БьютиМед(B), Призвание(A), 21 Век(B); резерв пополнен: Giovane (Уфа), МузКласс (НН), Родная клиника (Ростов) || Дополнительно подготовлен newbiz-батч №1: 8 недавно открытых бизнесов (RAFIREL, Stomberry, Академия VIP Beauty, Лювиталь, Хвоя Сити, Точка Красоты Краснодар, Мега-Дент, KIBERone Мурино) — касания через ВК/телефон (email у новичков не публикуется), outbox/2026-07-08-newbiz-dm.md; методика источников — templates/new-business.md"
     }
   },
   "report": {
-    "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1n8mA8ehYcVVaK5Nog8GQ5pMhhCf0DLl8mDvzCrw02tg/edit",
-    "file_id": "1n8mA8ehYcVVaK5Nog8GQ5pMhhCf0DLl8mDvzCrw02tg",
+    "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1GI99MYJswQxKZKkFAmwfNPsWv8gEMeSYD4mudCZi9oI/edit",
+    "file_id": "1GI99MYJswQxKZKkFAmwfNPsWv8gEMeSYD4mudCZi9oI",
     "uploaded_at": "2026-07-07",
-    "note": "канонический ЕДИНЫЙ отчёт: многовкладочная Google Таблица (base64-xlsx из build_report.py, формат как у исходной 1z29MQ...). Обновление: по пятницам новая датированная версия тем же способом; CSV-путь (--csv) — фолбэк при сбоях base64. Устарели и можно удалить: 1z29MQ... (старая ручная) и 1FiOslj... (одновкладочная CSV-версия)"
+    "note": "канонический ЕДИНЫЙ отчёт (обновлён 07.07 после сверки отправок и подготовки батча №3): многовкладочная Google Таблица; длинные заметки в журнале укорочены до 90 знаков для надёжной загрузки — полные в leads.json/git. Утренняя версия 1n8mA8... устарела — удалить; также устарели 1z29MQ... и 1FiOslj..."
   },
   "connectors": {
     "gmail_read": "ok",
