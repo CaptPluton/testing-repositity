@@ -64,7 +64,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Авторская клиника косметолога; лояльные клиенты 10+ лет; нет заметной рекламы в Директе/ВК, продвижение на сарафане",
+      "notes": "Авторская клиника косметолога; лояльные клиенты 10+ лет; нет заметной рекламы в Директе/ВК, продвижение на сарафане || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -99,14 +99,25 @@
       "email_type": "generic",
       "has_contact_name": true,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r-2431985152051368046",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358d3d928a980",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f3599d0f0304c3",
+        "followup1_draft_id": "r-2431985152051368046"
       }
     },
     {
@@ -122,7 +133,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Два центра; врачебное позиционирование; активного ВК не видно — локальный таргет по Академгородку свободен",
+      "notes": "Два центра; врачебное позиционирование; активного ВК не видно — локальный таргет по Академгородку свободен || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -157,14 +168,25 @@
       "email_type": "generic",
       "has_contact_name": false,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r-2399894723436266667",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358d4b8f7b500",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f3599516228c50",
+        "followup1_draft_id": "r-2399894723436266667"
       }
     },
     {
@@ -180,7 +202,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Оффер «4 руки за 1,5 часа», гарантия на покрытие; запись только по телефону, нет онлайн-записи и промо-лендингов",
+      "notes": "Оффер «4 руки за 1,5 часа», гарантия на покрытие; запись только по телефону, нет онлайн-записи и промо-лендингов || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -215,14 +237,25 @@
       "email_type": "generic",
       "has_contact_name": false,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r-3185450077465652732",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358d53121bfff",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f3598dd5a629f5",
+        "followup1_draft_id": "r-3185450077465652732"
       }
     },
     {
@@ -238,7 +271,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Программы «для двоих» и мужские SPA — сегменты под сертификаты; запись только по телефону, реклама сегментов не ведётся",
+      "notes": "Программы «для двоих» и мужские SPA — сегменты под сертификаты; запись только по телефону, реклама сегментов не ведётся || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -273,14 +306,25 @@
       "email_type": "generic",
       "has_contact_name": false,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r-7741711625271739586",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358d5d490a5dd",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f3598713e8bf06",
+        "followup1_draft_id": "r-7741711625271739586"
       }
     },
     {
@@ -368,7 +412,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Дети 6–17, занятия 1-на-1, своё приложение; дорогое привлечение, из соцсетей только устаревший Facebook",
+      "notes": "Дети 6–17, занятия 1-на-1, своё приложение; дорогое привлечение, из соцсетей только устаревший Facebook || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -408,14 +452,25 @@
       "email_type": "generic",
       "has_contact_name": true,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r-1271612987747353386",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358db769096c3",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f359639ff472b8",
+        "followup1_draft_id": "r-1271612987747353386"
       }
     },
     {
@@ -431,7 +486,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Академическая школа у метро Гражданский проспект, дети и взрослые, есть онлайн; сайт-визитка без воронки, живёт на сарафане",
+      "notes": "Академическая школа у метро Гражданский проспект, дети и взрослые, есть онлайн; сайт-визитка без воронки, живёт на сарафане || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -471,14 +526,25 @@
       "email_type": "generic",
       "has_contact_name": false,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r6813851627862405581",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358dd5118398c",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f35948b9a10731",
+        "followup1_draft_id": "r6813851627862405581"
       }
     },
     {
@@ -494,7 +560,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Позиционирование «естественный результат, домашняя атмосфера»; активных соцсетей не видно — потенциал SMM + таргет ВК по Казани",
+      "notes": "Позиционирование «естественный результат, домашняя атмосфера»; активных соцсетей не видно — потенциал SMM + таргет ВК по Казани || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -534,14 +600,25 @@
       "email_type": "generic",
       "has_contact_name": true,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r-1578525113652678908",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358de64800084",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f359316e400e59",
+        "followup1_draft_id": "r-1578525113652678908"
       }
     },
     {
@@ -557,7 +634,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "Рейтинг 4.7, 364 отзыва на 2ГИС, детский бренд «ДетиДент»; привлечение опирается на агрегаторы — точка роста Директ",
+      "notes": "Рейтинг 4.7, 364 отзыва на 2ГИС, детский бренд «ДетиДент»; привлечение опирается на агрегаторы — точка роста Директ || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -597,14 +674,25 @@
       "email_type": "generic",
       "has_contact_name": false,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r6423077603358820547",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358e069208a6e",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f359244d3fdd81",
+        "followup1_draft_id": "r6423077603358820547"
       }
     },
     {
@@ -620,7 +708,7 @@
       "followups_sent": 0,
       "created_at": "2026-07-06",
       "last_activity": "2026-07-06",
-      "notes": "28 врачей, 936 отзывов на ПроДокторов; репутация на агрегаторах, собственный платный трафик недозагружен",
+      "notes": "28 врачей, 936 отзывов на ПроДокторов; репутация на агрегаторах, собственный платный трафик недозагружен || Фоллоу-ап №1 (D+3) подготовлен 08.07 ответом в цепочку — отправить 09.07",
       "history": [
         {
           "date": "2026-07-06",
@@ -660,14 +748,25 @@
       "email_type": "generic",
       "has_contact_name": false,
       "source_channel": "websearch",
-      "followup_history": [],
-      "pending_draft": false,
+      "followup_history": [
+        {
+          "n": 1,
+          "prepared": "2026-07-08",
+          "sent": null,
+          "channel": "email",
+          "draft_id": "r2443434931994673294",
+          "note": "D+3 reply-в-цепочку; отправка 09.07"
+        }
+      ],
+      "pending_draft": true,
       "bounce_reason": null,
       "external": {
-        "thread_id": null,
+        "thread_id": "19f358e193d3108f",
         "calendar_event_id": null,
         "asana_task_gid": null,
-        "asana_client_project_gid": null
+        "asana_client_project_gid": null,
+        "sent_message_id": "19f359161fd8fbd2",
+        "followup1_draft_id": "r2443434931994673294"
       }
     },
     {
