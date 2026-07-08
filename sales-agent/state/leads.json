@@ -3482,6 +3482,43 @@
         "asana_task_gid": null,
         "asana_client_project_gid": null
       }
+    },
+    {
+      "id": "inter-lang.ru",
+      "company": "«Интер-Лэнг» — сеть школ иностранных языков",
+      "city": "Ярославль",
+      "website": "https://www.inter-lang.ru/",
+      "contact_name": "Передреева Анна Вячеславовна (директор ЧУ ДО, с 2007)",
+      "email": "inter-lang_yar@mail.ru",
+      "source": "WebSearch + соцразведка v2 (site-first), email дословно из сниппетов",
+      "niche": "education",
+      "status": "backlog",
+      "followups_sent": 0,
+      "created_at": "2026-07-08",
+      "last_activity": "2026-07-08",
+      "notes": "Резерв (сильный, 5/5): 5+ филиалов по районам (2ГИС подтверждает) — идеально под геотаргет; 3000+ учеников/год; линейка: английский/китайский/ментальная арифметика/скорочтение — сегментация кампаний; ВК/TG заявлены, URL не подтверждены",
+      "history": [],
+      "subject": null,
+      "sent_at": null,
+      "replied_at": null,
+      "call_at": null,
+      "call_outcome": null,
+      "variant": null,
+      "experiment_id": null,
+      "lpr_vk": null,
+      "lpr_tg": null,
+      "email_type": "generic",
+      "has_contact_name": true,
+      "source_channel": "websearch",
+      "followup_history": [],
+      "pending_draft": false,
+      "bounce_reason": null,
+      "external": {
+        "thread_id": null,
+        "calendar_event_id": null,
+        "asana_task_gid": null,
+        "asana_client_project_gid": null
+      }
     }
   ]
 }
