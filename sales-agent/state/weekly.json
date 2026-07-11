@@ -1,31 +1,41 @@
 {
-  "_schema": "ключ = понедельник недели (YYYY-MM-DD, Asia/Omsk). metrics — вставка из build_report.py --json (не считать руками); experiments: [{id, hypothesis, factor, variant_a, variant_b, metric, min_n, started, status: proposed|running|decided|no_difference, decision}]; decisions: [{id, date, what_changed, file, expected_effect, review_after}]; conclusions — вывод недели человеческим языком",
-  "2026-07-06": {
-    "metrics": null,
-    "experiments": [
-      {
-        "id": "EXP-001-cta",
-        "hypothesis": "CTA с микро-ценностью («пришлю мини-разбор в 10 строк — ответьте „да“») даст больше ответов, чем прямой CTA на созвон, потому что порог согласия ниже",
-        "factor": "CTA",
-        "variant_a": "мини-разбор (ответьте «да»)",
-        "variant_b": "созвон 20 минут (текущий)",
-        "metric": "reply_rate",
-        "min_n": 40,
-        "started": "2026-07-07",
-        "status": "running",
-        "decision": null
-      }
-    ],
-    "decisions": [
-      {
-        "id": "REDESIGN-v2",
-        "date": "2026-07-06",
-        "what_changed": "Полная переработка системы по итогам аудита (59 находок): подтверждение отправки, статусы v2, Asana-интеграция, A/B, когортная аналитика, надёжность запусков",
-        "file": "sales-agent/*",
-        "expected_effect": "исчезнут потерянные лиды и невидимые ответы; появится измеримый цикл улучшения стратегии",
-        "review_after": "2026-07-20"
-      }
-    ],
-    "conclusions": "Старт рассылки: 10 писем подготовлено (бьюти 4, обучение 3, медицина 3), отправка ожидает подтверждения Яны. Блокер №1 — переавторизация Gmail (не видим ответы). С 07.07 запущен EXP-001-cta. Ожидание: reply rate ≥3% от доставленных; решения — после дозревания когорт (≥14 дней)."
-  }
+ "_schema": "ключ = понедельник недели (YYYY-MM-DD, Asia/Omsk). metrics — вставка из build_report.py --json (не считать руками); experiments: [{id, hypothesis, factor, variant_a, variant_b, metric, min_n, started, status: proposed|running|decided|no_difference, decision}]; decisions: [{id, date, what_changed, file, expected_effect, review_after}]; conclusions — вывод недели человеческим языком",
+ "2026-07-06": {
+  "metrics": null,
+  "experiments": [
+   {
+    "id": "EXP-001-cta",
+    "hypothesis": "CTA с микро-ценностью («пришлю мини-разбор в 10 строк — ответьте „да“») даст больше ответов, чем прямой CTA на созвон, потому что порог согласия ниже",
+    "factor": "CTA",
+    "variant_a": "мини-разбор (ответьте «да»)",
+    "variant_b": "созвон 20 минут (текущий)",
+    "metric": "reply_rate",
+    "min_n": 40,
+    "started": "2026-07-07",
+    "status": "running",
+    "decision": null
+   },
+   {
+    "id": "EXP-004-fixprice",
+    "started": "2026-07-11",
+    "hypothesis": "Оффер «заявки по фиксированной цене из альтернативного источника» (пост Яны: одиночные клиники vs сети, SMS-валидация, кейс Краснодар ×9) даст больше ответов в медицине/образовании, чем универсальное письмо про рекламу",
+    "factor": "основной оффер письма",
+    "variant_a": "FIX — фикс-цена как главный оффер (Имплант Люкс, Интер-Лэнг, Колибри + фикс-крупица в мед-фоллоу-апах)",
+    "variant_b": "mediaplan — медиаплан-CTA v4 (остальные)",
+    "status": "running",
+    "decision": null
+   }
+  ],
+  "decisions": [
+   {
+    "id": "REDESIGN-v2",
+    "date": "2026-07-06",
+    "what_changed": "Полная переработка системы по итогам аудита (59 находок): подтверждение отправки, статусы v2, Asana-интеграция, A/B, когортная аналитика, надёжность запусков",
+    "file": "sales-agent/*",
+    "expected_effect": "исчезнут потерянные лиды и невидимые ответы; появится измеримый цикл улучшения стратегии",
+    "review_after": "2026-07-20"
+   }
+  ],
+  "conclusions": "Старт рассылки: 10 писем подготовлено (бьюти 4, обучение 3, медицина 3), отправка ожидает подтверждения Яны. Блокер №1 — переавторизация Gmail (не видим ответы). С 07.07 запущен EXP-001-cta. Ожидание: reply rate ≥3% от доставленных; решения — после дозревания когорт (≥14 дней)."
+ }
 }
