@@ -1005,6 +1005,11 @@
      "date": "2026-07-09",
      "action": "письмо переписано (v4)",
      "details": "кейсы из презентаций (воронка до денег) + механика (ИП/кабинеты/1-2 платежа/маркировка/KPI после тестовой недели/контроль обработки бесплатно) + CTA «одно слово — бесплатный медиаплан» + P.S. Zoom-отчётность; актуальный черновик r3736435066783082582, старые версии удалить"
+    },
+    {
+     "date": "2026-07-13",
+     "action": "обогащение VK",
+     "details": "https://vk.com/altikansk (из досье)"
     }
    ],
    "subject": "Рост с 33 до 191 заявки в месяц: медиаплан для «Алтики»",
@@ -1032,7 +1037,8 @@
      "r-4714859196832609999",
      "r3659928126484138809"
     ]
-   }
+   },
+   "vk_group": "https://vk.com/altikansk"
   },
   {
    "id": "sovershenstvo-clinic.ru",
@@ -1120,6 +1126,11 @@
      "date": "2026-07-09",
      "action": "фоллоу-ап №1 подготовлен",
      "details": "черновик-ответ в цепочку r-565421916031424782; отправка 10.07 (пт)"
+    },
+    {
+     "date": "2026-07-13",
+     "action": "обогащение VK",
+     "details": "https://vk.com/terradelsol (из досье)"
     }
    ],
    "subject": "Идея по записям для Terra del Sol",
@@ -1153,7 +1164,8 @@
     "asana_client_project_gid": null,
     "sent_message_id": "19f3a7649f98c57b",
     "followup1_draft_id": "r-565421916031424782"
-   }
+   },
+   "vk_group": "https://vk.com/terradelsol"
   },
   {
    "id": "красивые-люди.рф",
@@ -1385,6 +1397,11 @@
      "date": "2026-07-09",
      "action": "письмо переписано (v4)",
      "details": "кейсы из презентаций (воронка до денег) + механика (ИП/кабинеты/1-2 платежа/маркировка/KPI после тестовой недели/контроль обработки бесплатно) + CTA «одно слово — бесплатный медиаплан» + P.S. Zoom-отчётность; актуальный черновик r-3794848172810787059, старые версии удалить"
+    },
+    {
+     "date": "2026-07-13",
+     "action": "обогащение VK",
+     "details": "https://vk.com/wanttosew (из досье)"
     }
    ],
    "subject": "Заявки ×2,5 к осеннему набору: медиаплан для «Хочу Шить»",
@@ -1412,7 +1429,8 @@
      "r-8870729187067228637",
      "r8753136767115556429"
     ]
-   }
+   },
+   "vk_group": "https://vk.com/wanttosew"
   },
   {
    "id": "lancette-nn.ru",
@@ -1703,6 +1721,11 @@
      "date": "2026-07-09",
      "action": "письмо переписано (v4)",
      "details": "кейсы из презентаций (воронка до денег) + механика (ИП/кабинеты/1-2 платежа/маркировка/KPI после тестовой недели/контроль обработки бесплатно) + CTA «одно слово — бесплатный медиаплан» + P.S. Zoom-отчётность; актуальный черновик r-6390449761758019339, старые версии удалить"
+    },
+    {
+     "date": "2026-07-13",
+     "action": "обогащение VK",
+     "details": "https://vk.com/triars_school (из досье)"
     }
    ],
    "subject": "Ученики к осеннему набору: медиаплан для «Триарс»",
@@ -1730,7 +1753,8 @@
      "r661082222195505770",
      "r853796631358272255"
     ]
-   }
+   },
+   "vk_group": "https://vk.com/triars_school"
   },
   {
    "id": "stomatologia21vek.ru",
@@ -3970,6 +3994,11 @@
      "date": "2026-07-09",
      "action": "письмо переписано (v4)",
      "details": "кейсы из презентаций (воронка до денег) + механика (ИП/кабинеты/1-2 платежа/маркировка/KPI после тестовой недели/контроль обработки бесплатно) + CTA «одно слово — бесплатный медиаплан» + P.S. Zoom-отчётность; актуальный черновик r1006023237956693686, старые версии удалить"
+    },
+    {
+     "date": "2026-07-13",
+     "action": "обогащение VK",
+     "details": "https://vk.com/MassagTomsk (из досье)"
     }
    ],
    "subject": "Новые клиенты для вашей студии — 18 000 ₽",
@@ -3998,7 +4027,8 @@
      "r6195876105622726258",
      "r8732433721705265038"
     ]
-   }
+   },
+   "vk_group": "https://vk.com/MassagTomsk"
   },
   {
    "id": "сахар-воск.рф",
@@ -5399,6 +5429,11 @@
      "date": "2026-07-13",
      "action": "черновик создан в Gmail (батч №9, HTML)",
      "details": "дизайн V3-pnl, черновик r-3122534889922873929; EXP-005-design; отправка вт/ср"
+    },
+    {
+     "date": "2026-07-13",
+     "action": "обогащение VK",
+     "details": "https://vk.com/club89400473 (из карточки big-book-med (вероятно их))"
     }
    ],
    "subject": "«Союз»: сколько стоит пациент и сколько он приносит",
@@ -5422,7 +5457,8 @@
     "asana_task_gid": null,
     "asana_client_project_gid": null,
     "draft_id": "r-3122534889922873929"
-   }
+   },
+   "vk_group": "https://vk.com/club89400473"
   },
   {
    "id": "smiledent32.ru",
@@ -5714,6 +5750,11 @@
      "date": "2026-07-13",
      "action": "черновик создан в Gmail (батч №9, HTML)",
      "details": "дизайн V5-schedule, черновик r5991200391119823059; EXP-005-design; отправка вт/ср"
+    },
+    {
+     "date": "2026-07-13",
+     "action": "обогащение",
+     "details": "найдена ВК-группа vk.com/klinika_redwhite (из сниппета vk.me-ссылки; вероятно их)"
     }
    ],
    "subject": "Журнал записи RedWhite без окон — расчёт",
@@ -5737,7 +5778,8 @@
     "asana_task_gid": null,
     "asana_client_project_gid": null,
     "draft_id": "r5991200391119823059"
-   }
+   },
+   "vk_group": "https://vk.com/klinika_redwhite"
   },
   {
    "id": "nevstoma.ru",
@@ -5782,6 +5824,476 @@
     "asana_task_gid": null,
     "asana_client_project_gid": null,
     "draft_id": "r-5336259292837335254"
+   }
+  },
+  {
+   "id": "zangaristom.ru",
+   "company": "Стоматология «Зангари»",
+   "city": "Ижевск",
+   "website": "https://zangaristom.ru",
+   "contact_name": null,
+   "email": "zangaristom@yandex.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "medicine",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 (3412) 65-09-06",
+   "vk_group": "https://vk.com/zangaristomat",
+   "tg_link": null,
+   "notes": "Семейная клиника 20+ лет, один адрес (Четырнадцатая 56а); ведут SEO-блог (статьи 2025); 19 отзывов 2ГИС; протезирование/элайнеры/имплантация || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r-6635334475216828011; вариант FIX"
+    }
+   ],
+   "subject": "Заявок ×9 для одиночной стоматологии — расчёт для «Зангари»",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": false,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r-6635334475216828011"
+   }
+  },
+  {
+   "id": "astra33.ru",
+   "company": "Стоматологическая клиника «Астра»",
+   "city": "Владимир",
+   "website": "https://astra33.ru",
+   "contact_name": "Скоропад Эдуард Витальевич (хирург-имплантолог, владелец; практикует с 1983)",
+   "email": "skoropad.eduard@rambler.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "medicine",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 915 775-50-83",
+   "vk_group": null,
+   "tg_link": null,
+   "notes": "ЛИЧНАЯ почта врача-владельца — письмо минует администратора; хирургия/имплантация; мобильный публичный || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r2012087152340838151; вариант FIX"
+    }
+   ],
+   "subject": "Заявок ×9 для одиночной стоматологии — расчёт для «Астры»",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": true,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r2012087152340838151"
+   }
+  },
+  {
+   "id": "stomatolog-kursk.ru",
+   "company": "Клиника доктора Евграфова «Стоматолог»",
+   "city": "Курск",
+   "website": "https://stomatolog-kursk.ru",
+   "contact_name": "Евграфов (врач-основатель, именная клиника)",
+   "email": "stomatolog.12@mail.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "medicine",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 910-731-14-42",
+   "vk_group": null,
+   "tg_link": null,
+   "notes": "10 врачей, 78 отзывов ПроДокторов; без выходных 9-20; мобильный публичный || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r-5920133203217268828; вариант FIX"
+    }
+   ],
+   "subject": "Заявок ×9 для одиночной стоматологии — расчёт для клиники доктора Евграфова",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": true,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r-5920133203217268828"
+   }
+  },
+  {
+   "id": "laser-oliva.tilda.ws",
+   "company": "Студия лазерной эпиляции «Олива»",
+   "city": "Чебоксары",
+   "website": "http://laser-oliva.tilda.ws",
+   "contact_name": null,
+   "email": "laser_oliva@mail.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "beauty",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 908 307-26-94",
+   "vk_group": null,
+   "tg_link": null,
+   "notes": "3 точки; сайт — бесплатный Tilda-лендинг (точка роста); абонементы −10/−15/−20% (LTV-механика есть); мобильный владельца || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r7492102025669286296; вариант FIX"
+    }
+   ],
+   "subject": "Заявки на эпиляцию по 504 ₽ с оплатой за результат — для «Оливы»",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": false,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r7492102025669286296"
+   }
+  },
+  {
+   "id": "lazer-kirov.ru",
+   "company": "Клиника лазерной медицины «Возрождение»",
+   "city": "Киров",
+   "website": "https://www.lazer-kirov.ru",
+   "contact_name": null,
+   "email": "lazer-kirov@mail.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "beauty",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 (8332) 45-76-78",
+   "vk_group": "https://vk.com/lazerkirov",
+   "tg_link": null,
+   "notes": "Мед-клиника: 24 врача/41 отзыв ПроДокторов, лицензии; в ВК дают скидку 10% подписчикам — ценят соцсети, нет системного трафика; александрит || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r-6789397487229108014; вариант FIX"
+    }
+   ],
+   "subject": "Заявки на эпиляцию по 504 ₽ с оплатой за результат — для «Возрождения»",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": false,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r-6789397487229108014"
+   }
+  },
+  {
+   "id": "volos-net.clients.site",
+   "company": "Студия лазерной эпиляции «Волос нет»",
+   "city": "Липецк",
+   "website": "https://volos-net.clients.site",
+   "contact_name": null,
+   "email": "volosnet.lip@ya.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "beauty",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 (920) 537-78-88",
+   "vk_group": null,
+   "tg_link": null,
+   "notes": "Сайта нет (clients.site), запись через Dikidi; ВК и TG упомянуты в 2ГИС без URL; мобильный основной; без выходных || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r2213234865622576911; вариант FIX"
+    }
+   ],
+   "subject": "Заявки на эпиляцию по 504 ₽ с оплатой за результат — для «Волос нет»",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": false,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r2213234865622576911"
+   }
+  },
+  {
+   "id": "speakenglish27.ru",
+   "company": "Speak! English",
+   "city": "Хабаровск",
+   "website": "https://speakenglish27.ru",
+   "contact_name": "Стукалова Анастасия Владимировна (учредитель)",
+   "email": "speakenglish27@mail.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "education",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 914 158-92-80",
+   "vk_group": null,
+   "tg_link": null,
+   "notes": "С 2012, лицензия, международные экзамены; БЦ Феликс-Сити; мобильный публичный || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r6392859183567243777; вариант FIX"
+    }
+   ],
+   "subject": "Ученики к сентябрю для Speak! English — бесплатный медиаплан",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": true,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r6392859183567243777"
+   }
+  },
+  {
+   "id": "kolganovaschool.ru",
+   "company": "ЧОУ «Новая школа Натальи Колгановой»",
+   "city": "Липецк",
+   "website": "https://kolganovaschool.ru",
+   "contact_name": "Колганова Наталья Евгеньевна (директор)",
+   "email": "info@kolganovaschool.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "education",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 (999) 333-14-23",
+   "vk_group": null,
+   "tg_link": null,
+   "notes": "Школа полного дня; набор на вечернюю подготовку 5-6 лет (отдельные посадочные); ЧОУ с 2021, лицензия; мобильный || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r3191716096787610941; вариант FIX"
+    }
+   ],
+   "subject": "Ученики в «Новую школу» к сентябрю — бесплатный медиаплан",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": true,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r3191716096787610941"
+   }
+  },
+  {
+   "id": "rostum.ru",
+   "company": "АНОО «Академия Ростум»",
+   "city": "Пенза",
+   "website": "https://rostum.ru",
+   "contact_name": "Завитаева Инна Викторовна (директор); основатель ГК — Александр Мухин",
+   "email": "academy@rostum.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "education",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "+7 (8412) 499055",
+   "vk_group": "https://vk.com/akademiapnz",
+   "tg_link": null,
+   "notes": "Первая частная школа области с лицензией; 5 адресов по Пензе; основатель медийный (АиФ, penzavzglyad) || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r3109391619614396607; вариант FIX"
+    }
+   ],
+   "subject": "Ученики для 5 филиалов «Академии Ростум» — бесплатный медиаплан",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": true,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r3109391619614396607"
+   }
+  },
+  {
+   "id": "abvgd-ka.ru",
+   "company": "Центр развития ребенка «АБВГДейка»",
+   "city": "Пермь",
+   "website": "https://abvgd-ka.ru",
+   "contact_name": null,
+   "email": "info@abvgd-ka.ru",
+   "source": "WebSearch (агенты 13.07, батч №10 — мультиканальные связки email+VK/TG/моб.)",
+   "niche": "education",
+   "status": "drafted",
+   "followups_sent": 0,
+   "created_at": "2026-07-13",
+   "last_activity": "2026-07-13",
+   "phone": "8 (908) 275 50 77",
+   "vk_group": "https://vk.com/abvgdeka",
+   "tg_link": null,
+   "notes": "15 лет, 20+ направлений, несколько локаций; мобильный; Zoon ~4 || БАТЧ №10 (FIX plain-text, мультиканальный): отправка чт 17.07; VK/TG-касание D+2",
+   "history": [
+    {
+     "date": "2026-07-13",
+     "action": "лид найден (связка email+второй канал), черновик создан в Gmail",
+     "details": "r5037362927982041511; вариант FIX"
+    }
+   ],
+   "subject": "Ученики к сентябрю для «АБВГДейки» — бесплатный медиаплан",
+   "sent_at": null,
+   "replied_at": null,
+   "call_at": null,
+   "call_outcome": null,
+   "variant": "FIX",
+   "experiment_id": "EXP-004-fixprice",
+   "lpr_vk": null,
+   "lpr_tg": null,
+   "email_type": "generic",
+   "has_contact_name": false,
+   "source_channel": "websearch",
+   "followup_history": [],
+   "pending_draft": true,
+   "bounce_reason": null,
+   "external": {
+    "thread_id": null,
+    "calendar_event_id": null,
+    "asana_task_gid": null,
+    "asana_client_project_gid": null,
+    "draft_id": "r5037362927982041511"
    }
   }
  ]
