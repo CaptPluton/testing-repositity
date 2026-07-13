@@ -1,0 +1,19 @@
+{
+  "_schema": "очередь Asana-действий при недоступности коннектора: [{type, payload, queued_at}]",
+  "queue": [
+    {
+      "type": "create_task",
+      "queued_at": "2026-07-07",
+      "payload": {
+        "project": "1216283918610576",
+        "section": "1216283918652016",
+        "assignee": "me",
+        "due_on": "2026-07-08",
+        "name": "Отправить письма 08.07: 10 холодных (батч №3)",
+        "notes": "Батч №3 подготовлен 07.07 — все 10 черновиков в Gmail (от 07.07). Отправлять в среду 08.07, по одному с интервалом 3–5 минут, окно 10:00–12:00 по времени получателя. Адресаты: LAPLAS (Тюмень, info@lap-las.ru), Laser House (Краснодар, laserhousekrd@mail.ru), МиМи|ЛО (Ростов, ativlasta016@gmail.com), Timeless (СПб, info@timeless-studio.ru), iDesign (Екб, sales.chief@idesign.school), ProgKids (Мск, support@progkids.com), Триарс (Казань, info@triars.ru), БьютиМед (Пермь, b_med59@mail.ru), Призвание (Самара, info@clinica-prizvanie.ru), 21 Век (Казань, stom.21@mail.ru). A/B EXP-001: 5×A/5×B, текст и CTA не менять. Напоминание по батчу №2: дослать 5 писем (Алтика, Найди Себя, Хочу Шить, Ланцетъ, Визави — свежие версии), новый черновик Profieng и старые дубли удалить. После отправки: завершить задачу или написать в чат. ОТМЕТКА ОБ ОТПРАВКЕ: "
+      },
+      "reason": "create_tasks: requires approval (07.07)"
+    }
+  ],
+  "last_replayed": "2026-07-07: create_task батча №2 выполнен вживую (gid 1216343107691384), очередь очищена"
+}
