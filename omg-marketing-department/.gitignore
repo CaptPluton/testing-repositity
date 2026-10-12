@@ -1,0 +1,6 @@
+outputs/*
+!outputs/.gitkeep
+state/archive/*
+!state/archive/.gitkeep
+.claude/settings.local.json
+.DS_Store

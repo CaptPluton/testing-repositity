@@ -1,0 +1,12 @@
+{
+  "last_morning": null,
+  "last_weekly_report": null,
+  "last_bootstrap": null,
+  "month": "2026-10",
+  "budget_cap_rub": 30000,
+  "spent_rub": 0,
+  "new_first_payments_rub": 0,
+  "drr1_pct": null,
+  "drr2_pct": null,
+  "notes": "Заполняется аналитиком. ДРР null означает: данных нет."
+}
