@@ -1,4 +1,4 @@
-import Database from 'better-sqlite3';
+import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
 import { ENV, USERS } from './config.js';
@@ -8,8 +8,8 @@ let db;
 export function openDb() {
   if (db) return db;
   fs.mkdirSync(ENV.dataDir, { recursive: true });
-  db = new Database(path.join(ENV.dataDir, 'vdvoem.sqlite'));
-  db.pragma('journal_mode = WAL');
+  db = new DatabaseSync(path.join(ENV.dataDir, 'vdvoem.sqlite'));
+  db.exec('PRAGMA journal_mode = WAL');
   db.exec(`
     CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS activities (

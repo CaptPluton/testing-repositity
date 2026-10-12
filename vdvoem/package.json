@@ -6,16 +6,15 @@
   "type": "module",
   "main": "src/index.js",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.13"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js",
-    "test": "node --test"
+    "start": "node --no-warnings=ExperimentalWarning src/index.js",
+    "dev": "node --no-warnings=ExperimentalWarning --watch src/index.js",
+    "test": "node --no-warnings=ExperimentalWarning --test"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.133.0",
-    "better-sqlite3": "^13.0.3",
     "express": "^5.3.0",
     "grammy": "^1.46.0",
     "node-cron": "^4.6.0"

@@ -15,7 +15,7 @@
 vdvoem/
   src/index.js          запуск: БД, бот (long polling), веб-сервер, cron
   src/config.js         пользователи, часовой пояс, переменные окружения
-  src/db.js             SQLite (better-sqlite3): занятия, свидания, настройки
+  src/db.js             SQLite (встроенный node:sqlite, без нативных модулей): занятия, свидания, настройки
   src/schedule.js       занятость обоих → общие свободные окна
   src/google.js         OAuth и Google Calendar REST
   src/dates.js          жизненный цикл приглашений
