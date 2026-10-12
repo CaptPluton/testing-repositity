@@ -1,0 +1,11 @@
+{
+  "name": "testing-repositity",
+  "private": true,
+  "description": "Repo root launcher: deploys the Vdvoem bot that lives in ./vdvoem without a Root Directory setting",
+  "engines": { "node": "22" },
+  "scripts": {
+    "postinstall": "npm --prefix vdvoem ci --omit=dev",
+    "start": "npm --prefix vdvoem start",
+    "test": "npm --prefix vdvoem test"
+  }
+}
