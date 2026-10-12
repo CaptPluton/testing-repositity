@@ -29,6 +29,13 @@ vdvoem/
 
 ## Деплой на Railway (10 минут)
 
+### Вариант A: скриптом из облачной сессии Claude
+В настройках облачного окружения Claude (меню окружения в заголовке сессии → Edit):
+1. **Network access** → разрешить домены `railway.com`, `backboard.railway.com`, `api.telegram.org`, `telegram.org` (галку «package managers» оставить).
+2. **Secrets / Environment variables**: `RAILWAY_API_TOKEN` (railway.com/account/tokens, личный токен без привязки к команде) и `BOT_TOKEN` (новый токен после `/revoke` в BotFather). По желанию `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `ANTHROPIC_API_KEY`.
+3. Запустить новую сессию в этом окружении и попросить: «Задеплой vdvoem на Railway через scripts/deploy-railway.sh». Скрипт создаёт проект, домен, переменные, volume `/data` и деплоит. Его можно запустить и с ноутбука: `RAILWAY_API_TOKEN=… BOT_TOKEN=… ./scripts/deploy-railway.sh`.
+
+### Вариант B: руками через сайт
 ### 1. Railway
 1. railway.com → **New Project → Deploy from GitHub repo** → этот репозиторий, ветка `claude/fervent-darwin-h1p97y` (или `main` после мерджа).
 2. В настройках сервиса: **Settings → Root Directory** = `vdvoem`.
