@@ -1,10 +1,12 @@
 import { Bot, InlineKeyboard, GrammyError, HttpError } from 'grammy';
-import { ENV, ALLOWED_IDS, USERS, APP_NAME, userById, userByKey, partnerOf } from '../config.js';
+import { ENV, ALLOWED_IDS, USERS, APP_NAME, TZ, zoneById, userById, userByKey, partnerOf } from '../config.js';
+import { registerTaskHandlers } from './tasks-bot.js';
 import * as db from '../db.js';
 import * as datesSvc from '../dates.js';
 import { onDateEvent } from '../dates.js';
 import { nextCommonWindows } from '../schedule.js';
-import { fmtMin, fmtDateRu, fmtDuration, today, addDays, WEEKDAYS_RU, nowMinutes } from '../time.js';
+import { fmtMin, fmtDateRu, fmtDuration, today, todayIn, addDays, WEEKDAYS_RU, nowMinutes } from '../time.js';
+import { activityPartsOnDay } from '../schedule.js';
 import { parseCommand, matchActivity, nextWeekday } from './parser.js';
 import { assistantEnabled, parseWithClaude } from './assistant.js';
 import { composeDay, composeMorning, composeWeek, composeFree, esc, windowText } from './digest.js';
@@ -66,8 +68,20 @@ export function createBot() {
     '• <i>что сегодня</i> · <i>что завтра</i> · <i>неделя</i> · <i>когда свободны</i>',
     '• <i>скучаю</i>: подскажу ближайшее окно вдвоём',
     '',
-    'Команды: /app /today /tomorrow /week /free /date /miss /help',
+    'Время по Москве: добавь «по мск», я сама переведу на пхукетское:',
+    '• <i>добавь мне созвон завтра в 14:00 по мск на час</i>',
+    '',
+    'Задачи и напоминания:',
+    '• <i>напомни мне завтра в 10 по мск позвонить маме</i>',
+    '• <i>напомни Вове в пятницу купить цветы</i>',
+    '• <i>напоминай каждый день в 9 пить витамины</i>',
+    '• <i>напомни нам через 2 часа выключить духовку</i>',
+    '• <i>задачи</i>: список',
+    '',
+    'Команды: /app /today /tomorrow /week /free /tasks /date /miss /help',
   ].join('\n');
+
+  const taskBot = registerTaskHandlers(bot, { groupId, appKeyboard });
 
   bot.command('start', async (ctx) => {
     if (ctx.chat.type !== 'private') db.setSetting(GROUP_KEY, String(ctx.chat.id));
@@ -128,6 +142,8 @@ export function createBot() {
       case 'miss': return missYou(ctx, sender.key);
       case 'chat': return ctx.reply(cmd.reply || '💞');
       case 'add': return addActivity(ctx, cmd);
+      case 'remind': return taskBot.createFromCommand(ctx, cmd, sender);
+      case 'tasks': return taskBot.listTasks(ctx, sender.key);
       case 'move': return moveActivity(ctx, cmd);
       case 'delete': return deleteActivity(ctx, cmd);
       default: return ctx.reply('Пока не умею такое, но учусь 🐣');
@@ -135,6 +151,17 @@ export function createBot() {
   }
 
   const who = (key) => (key === 'yana' ? 'Яне' : 'Вове');
+  const zoneShort = (tz) => zoneById(tz)?.short || tz;
+  // «14:00–15:00 МСК = 18:00–19:00 по Пхукету» for activities typed in another zone
+  function timeText(a) {
+    const own = `${fmtMin(a.start)}–${fmtMin(a.end)}`;
+    if (!a.tz || a.tz === TZ) return own;
+    const probe = a.kind === 'once' ? a.date : nextWeekday(a.weekday, todayIn(a.tz));
+    const parts = [...activityPartsOnDay(a, probe), ...activityPartsOnDay(a, addDays(probe, 1))].filter((p) => p.part !== 'end');
+    const ph = parts[0];
+    const shifted = ph ? `${fmtMin(ph.start)}–${fmtMin(ph.end === 1440 ? 0 : ph.end)}` : '?';
+    return `${own} ${zoneShort(a.tz)} = ${shifted} по Пхукету`;
+  }
   const whenText = (a) => (a.kind === 'recurring' ? `по ${WEEKDAYS_RU[a.weekday].replace(/а$/, 'ам').replace(/ье$/, 'ьям').replace(/(к|г)$/, '$1ам')}` : fmtDateRu(a.date));
 
   async function addActivity(ctx, cmd) {
@@ -142,10 +169,12 @@ export function createBot() {
     if (cmd.start == null) return ctx.reply(`Во сколько «${esc(cmd.title)}»? Напиши, например: «… в 18:00 на час»`, { parse_mode: 'HTML' });
     let kind = cmd.kind || 'once';
     let date = cmd.date, weekday = cmd.weekday;
-    if (kind === 'once' && !date) date = today();
+    const tz = cmd.tz || TZ;
+    if (kind === 'once' && !date) date = todayIn(tz);
     if (kind === 'recurring' && weekday == null) return ctx.reply('В какой день недели повторять?');
-    const a = db.insertActivity({ userKey: cmd.userKey, title: cmd.title, kind, weekday, date, start: cmd.start, end: cmd.end || cmd.start + 60 });
-    await ctx.reply(`Записала ${who(a.userKey)}: <b>${esc(a.title)}</b>, ${whenText(a)} ${fmtMin(a.start)}–${fmtMin(a.end)} ✅`, { parse_mode: 'HTML' });
+    const end = Math.min(1440, cmd.end || cmd.start + 60);
+    const a = db.insertActivity({ userKey: cmd.userKey, title: cmd.title, kind, weekday, date, start: cmd.start, end, tz });
+    await ctx.reply(`Записала ${who(a.userKey)}: <b>${esc(a.title)}</b>, ${whenText(a)} ${esc(timeText(a))} ✅`, { parse_mode: 'HTML' });
   }
 
   async function moveActivity(ctx, cmd) {
@@ -162,9 +191,11 @@ export function createBot() {
       patch.start = cmd.start;
       patch.end = cmd.end && cmd.end > cmd.start && cmd.raw && /(-|–|до)/.test(cmd.raw) ? cmd.end : cmd.start + len;
     }
+    if (cmd.tz && cmd.start != null) patch.tz = cmd.tz;
     if (!Object.keys(patch).length) return ctx.reply('Куда перенести? Укажи день и/или время.');
+    if (patch.end > 1440) patch.end = 1440;
     const n = db.updateActivity(a.id, patch);
-    await ctx.reply(`Перенесла: <b>${esc(n.title)}</b> теперь ${whenText(n)} ${fmtMin(n.start)}–${fmtMin(n.end)} 🔁`, { parse_mode: 'HTML' });
+    await ctx.reply(`Перенесла: <b>${esc(n.title)}</b> теперь ${whenText(n)} ${esc(timeText(n))} 🔁`, { parse_mode: 'HTML' });
   }
 
   async function deleteActivity(ctx, cmd) {
@@ -276,6 +307,7 @@ export function createBot() {
     await bot.api.sendMessage(chat, await composeMorning(), { parse_mode: 'HTML', reply_markup: appKeyboard({ chat: { type: 'group' } }) });
   }
   async function sendReminders() {
+    await taskBot.sendDueReminders().catch((e) => console.error('task reminders failed', e));
     const t = today();
     const now = nowMinutes();
     for (const d of db.upcomingAcceptedDates(t)) {
@@ -301,6 +333,7 @@ export function createBot() {
       { command: 'tomorrow', description: 'План на завтра' },
       { command: 'week', description: 'Неделя вдвоём' },
       { command: 'free', description: 'Когда мы оба свободны' },
+      { command: 'tasks', description: 'Задачи и напоминания' },
       { command: 'date', description: 'Позвать на свидание' },
       { command: 'miss', description: 'Скучаю' },
       { command: 'help', description: 'Что я умею' },
@@ -311,6 +344,7 @@ export function createBot() {
     }
     bot.start({
       allowed_updates: ['message', 'callback_query', 'my_chat_member'],
+      drop_pending_updates: false,
       onStart: (info) => console.log(`Bot @${info.username} is polling`),
     }).catch((e) => console.error('Polling stopped:', e));
     return me;

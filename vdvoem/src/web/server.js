@@ -1,14 +1,16 @@
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ENV, APP_NAME, AWAKE, TZ, GOOGLE_OWNER_KEY, userById, userByKey, partnerOf } from '../config.js';
+import { ENV, APP_NAME, AWAKE, TZ, MSK_TZ, ZONES, GOOGLE_OWNER_KEY, isZone, userById, userByKey, partnerOf } from '../config.js';
+import * as tasksSvc from '../tasks.js';
+import { getUserPrefs, setUserPrefs } from '../prefs.js';
 import * as db from '../db.js';
 import * as google from '../google.js';
 import * as datesSvc from '../dates.js';
 import { buildWeek } from '../schedule.js';
 import { CATEGORIES, IDEAS, pickIdeas } from '../ideas.js';
 import { validateInitData } from './initdata.js';
-import { today, nowMinutes, mondayOf, isValidDate, weekdayOf, fmtMin } from '../time.js';
+import { today, nowMinutes, mondayOf, isValidDate, weekdayOf, fmtMin, offsetMin } from '../time.js';
 import { countdowns } from '../countdowns.js';
 import { petNamesOf, setPetNames, petNameOptionsFor, callPartner, randomLine, FREE_LINES } from '../bot/texts.js';
 
@@ -58,6 +60,11 @@ function validateActivity(body, partial = false) {
   if (body.date !== undefined) {
     if (body.date !== null && !isValidDate(body.date)) throw httpError(400, 'bad_date', 'Дата в формате YYYY-MM-DD');
     out.date = body.date;
+  }
+  if (body.tz !== undefined || !partial) {
+    const tz = body.tz ?? TZ;
+    if (!isZone(tz)) throw httpError(400, 'bad_tz', 'Неизвестный часовой пояс');
+    out.tz = tz;
   }
   if (body.start !== undefined) out.start = body.start;
   if (body.end !== undefined) out.end = body.end;
@@ -110,6 +117,9 @@ export function createApp({ bot } = {}) {
       petNames: petNamesOf(me.key),
       petNameOptions: petNameOptionsFor(me.key),
       tz: TZ,
+      zones: ZONES.map((z) => ({ ...z, offsetMin: offsetMin(today(), z.id) })),
+      ...getUserPrefs(me.key),
+      secondTz: MSK_TZ,
       today: today(),
       nowMinutes: nowMinutes(),
       awake: AWAKE,
@@ -194,12 +204,41 @@ export function createApp({ bot } = {}) {
   });
 
   // ---- settings
-  api.get('/settings', (req, res) => res.json({ petNames: petNamesOf(req.me.key), petNameOptions: petNameOptionsFor(req.me.key) }));
+  const settingsOf = (key) => ({ petNames: petNamesOf(key), petNameOptions: petNameOptionsFor(key), ...getUserPrefs(key) });
+  api.get('/settings', (req, res) => res.json(settingsOf(req.me.key)));
   api.patch('/settings', (req, res) => {
-    const list = Array.isArray(req.body?.petNames) ? req.body.petNames : null;
-    if (!list) return res.status(400).json({ error: 'bad_body', message: 'Нужен массив petNames' });
-    const saved = setPetNames(req.me.key, list);
-    res.json({ petNames: saved, petNameOptions: petNameOptionsFor(req.me.key) });
+    const b = req.body || {};
+    if (b.petNames !== undefined) {
+      if (!Array.isArray(b.petNames)) return res.status(400).json({ error: 'bad_body', message: 'Нужен массив petNames' });
+      setPetNames(req.me.key, b.petNames);
+    }
+    if (b.inputTz !== undefined && !isZone(b.inputTz)) return res.status(400).json({ error: 'bad_tz', message: 'Неизвестный часовой пояс' });
+    setUserPrefs(req.me.key, { inputTz: b.inputTz, showSecondTz: b.showSecondTz });
+    res.json(settingsOf(req.me.key));
+  });
+
+  // ---- tasks
+  api.get('/tasks', (req, res) => {
+    const status = ['open', 'done', 'all'].includes(req.query.status) ? req.query.status : 'open';
+    res.json({ tasks: tasksSvc.listPresented(status) });
+  });
+  api.post('/tasks', async (req, res, next) => {
+    try { res.status(201).json({ task: await tasksSvc.createTask(req.me.key, req.body, { defaultTz: getUserPrefs(req.me.key).inputTz }) }); } catch (e) { next(e); }
+  });
+  api.patch('/tasks/:id', async (req, res, next) => {
+    try { res.json({ task: await tasksSvc.updateTaskById(Number(req.params.id), req.me.key, req.body) }); } catch (e) { next(e); }
+  });
+  api.post('/tasks/:id/done', async (req, res, next) => {
+    try { res.json({ task: await tasksSvc.completeTask(Number(req.params.id), req.me.key) }); } catch (e) { next(e); }
+  });
+  api.post('/tasks/:id/undo', async (req, res, next) => {
+    try { res.json({ task: await tasksSvc.reopenTask(Number(req.params.id), req.me.key) }); } catch (e) { next(e); }
+  });
+  api.post('/tasks/:id/snooze', async (req, res, next) => {
+    try { res.json({ task: await tasksSvc.snoozeTask(Number(req.params.id), req.body?.minutes) }); } catch (e) { next(e); }
+  });
+  api.delete('/tasks/:id', async (req, res, next) => {
+    try { await tasksSvc.removeTask(Number(req.params.id), req.me.key); res.json({ ok: true }); } catch (e) { next(e); }
   });
 
   // ---- google

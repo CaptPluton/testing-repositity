@@ -40,14 +40,38 @@ export function openDb() {
       reminded INTEGER NOT NULL DEFAULT 0,
       created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
     );
+    CREATE TABLE IF NOT EXISTS tasks (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      owner_key TEXT NOT NULL,
+      created_by TEXT NOT NULL,
+      title TEXT NOT NULL,
+      note TEXT NOT NULL DEFAULT '',
+      due_date TEXT,
+      due_time INTEGER,
+      tz TEXT NOT NULL DEFAULT 'Asia/Bangkok',
+      remind TEXT NOT NULL DEFAULT '[]',
+      repeat TEXT NOT NULL DEFAULT 'none',
+      status TEXT NOT NULL DEFAULT 'open',
+      done_at TEXT,
+      done_by TEXT,
+      snooze_until INTEGER,
+      fired TEXT NOT NULL DEFAULT '[]',
+      created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+    );
     CREATE TABLE IF NOT EXISTS oauth_states (
       state TEXT PRIMARY KEY,
       user_key TEXT NOT NULL,
       created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
     );
   `);
+  migrate();
   seedDefaults();
   return db;
+}
+
+function migrate() {
+  const cols = db.prepare('PRAGMA table_info(activities)').all().map((c) => c.name);
+  if (!cols.includes('tz')) db.exec("ALTER TABLE activities ADD COLUMN tz TEXT NOT NULL DEFAULT 'Asia/Bangkok'");
 }
 
 function seedDefaults() {
@@ -93,7 +117,7 @@ export function setJson(key, obj) {
 // ---- activities
 const rowToActivity = (r) => r && ({
   id: r.id, userKey: r.user_key, title: r.title, kind: r.kind,
-  weekday: r.weekday, date: r.date, start: r.start, end: r.end,
+  weekday: r.weekday, date: r.date, start: r.start, end: r.end, tz: r.tz || 'Asia/Bangkok',
 });
 
 export function listActivities() {
@@ -104,8 +128,8 @@ export function getActivity(id) {
 }
 export function insertActivity(a) {
   const info = openDb().prepare(
-    'INSERT INTO activities(user_key,title,kind,weekday,date,start,end) VALUES(?,?,?,?,?,?,?)',
-  ).run(a.userKey, a.title, a.kind, a.kind === 'recurring' ? a.weekday : null, a.kind === 'once' ? a.date : null, a.start, a.end);
+    'INSERT INTO activities(user_key,title,kind,weekday,date,start,end,tz) VALUES(?,?,?,?,?,?,?,?)',
+  ).run(a.userKey, a.title, a.kind, a.kind === 'recurring' ? a.weekday : null, a.kind === 'once' ? a.date : null, a.start, a.end, a.tz || 'Asia/Bangkok');
   return getActivity(info.lastInsertRowid);
 }
 export function updateActivity(id, patch) {
@@ -113,17 +137,12 @@ export function updateActivity(id, patch) {
   if (!cur) return null;
   const next = { ...cur, ...patch };
   openDb().prepare(
-    'UPDATE activities SET user_key=?, title=?, kind=?, weekday=?, date=?, start=?, end=? WHERE id=?',
-  ).run(next.userKey, next.title, next.kind, next.kind === 'recurring' ? next.weekday : null, next.kind === 'once' ? next.date : null, next.start, next.end, id);
+    'UPDATE activities SET user_key=?, title=?, kind=?, weekday=?, date=?, start=?, end=?, tz=? WHERE id=?',
+  ).run(next.userKey, next.title, next.kind, next.kind === 'recurring' ? next.weekday : null, next.kind === 'once' ? next.date : null, next.start, next.end, next.tz || 'Asia/Bangkok', id);
   return getActivity(id);
 }
 export function deleteActivity(id) {
   return openDb().prepare('DELETE FROM activities WHERE id = ?').run(id).changes > 0;
-}
-export function activitiesForDay(dateStr, weekday) {
-  return openDb().prepare(
-    "SELECT * FROM activities WHERE (kind='recurring' AND weekday=?) OR (kind='once' AND date=?) ORDER BY start",
-  ).all(weekday, dateStr).map(rowToActivity);
 }
 
 // ---- dates
@@ -160,6 +179,45 @@ export function datesForDay(dateStr) {
 }
 export function upcomingAcceptedDates(fromDate) {
   return openDb().prepare("SELECT * FROM dates WHERE status='accepted' AND date>=? ORDER BY date, start").all(fromDate).map(rowToDate);
+}
+
+// ---- tasks
+const parseJson = (v, fb) => { try { const x = JSON.parse(v); return x ?? fb; } catch { return fb; } };
+const rowToTask = (r) => r && ({
+  id: r.id, ownerKey: r.owner_key, createdBy: r.created_by, title: r.title, note: r.note || '',
+  dueDate: r.due_date || null, dueTime: r.due_time ?? null, tz: r.tz || 'Asia/Bangkok',
+  remind: parseJson(r.remind, []), repeat: r.repeat || 'none', status: r.status,
+  doneAt: r.done_at || null, doneBy: r.done_by || null, snoozeUntil: r.snooze_until ?? null,
+  fired: parseJson(r.fired, []), createdAt: r.created_at,
+});
+
+export function listTasks(status = 'open') {
+  const q = status === 'all' ? 'SELECT * FROM tasks' : 'SELECT * FROM tasks WHERE status = ?';
+  const st = openDb().prepare(`${q} ORDER BY id`);
+  return (status === 'all' ? st.all() : st.all(status)).map(rowToTask);
+}
+export function getTask(id) {
+  return rowToTask(openDb().prepare('SELECT * FROM tasks WHERE id = ?').get(id));
+}
+export function insertTask(t) {
+  const info = openDb().prepare(
+    'INSERT INTO tasks(owner_key,created_by,title,note,due_date,due_time,tz,remind,repeat,status) VALUES(?,?,?,?,?,?,?,?,?,?)',
+  ).run(t.ownerKey, t.createdBy, t.title, t.note || '', t.dueDate ?? null, t.dueTime ?? null, t.tz || 'Asia/Bangkok',
+    JSON.stringify(t.remind || []), t.repeat || 'none', 'open');
+  return getTask(info.lastInsertRowid);
+}
+export function updateTask(id, patch) {
+  const cur = getTask(id);
+  if (!cur) return null;
+  const n = { ...cur, ...patch };
+  openDb().prepare(
+    'UPDATE tasks SET owner_key=?, title=?, note=?, due_date=?, due_time=?, tz=?, remind=?, repeat=?, status=?, done_at=?, done_by=?, snooze_until=?, fired=? WHERE id=?',
+  ).run(n.ownerKey, n.title, n.note || '', n.dueDate ?? null, n.dueTime ?? null, n.tz, JSON.stringify(n.remind || []), n.repeat,
+    n.status, n.doneAt ?? null, n.doneBy ?? null, n.snoozeUntil ?? null, JSON.stringify(n.fired || []), id);
+  return getTask(id);
+}
+export function deleteTask(id) {
+  return openDb().prepare('DELETE FROM tasks WHERE id = ?').run(id).changes > 0;
 }
 
 // ---- oauth

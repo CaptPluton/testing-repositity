@@ -15,10 +15,15 @@ function getClient() {
 
 const SYSTEM = `Ты парсер команд для семейного календаря пары (Яна и Вова, Пхукет, часовой пояс Asia/Bangkok).
 Преобразуй сообщение в JSON без пояснений. Поля:
-{"intent":"add|move|delete|show_today|show_tomorrow|show_week|show_free|date_wish|miss|help|chat",
+{"intent":"add|move|delete|remind|tasks|show_today|show_tomorrow|show_week|show_free|date_wish|miss|help|chat",
  "userKey":"yana|vova", "title":string|null, "kind":"recurring|once"|null,
  "weekday":0-6|null (0=понедельник), "date":"YYYY-MM-DD"|null, "start":minutes|null, "end":minutes|null,
+ "tz":"Asia/Bangkok|Europe/Moscow"|null,
+ "ownerKey":"yana|vova|both"|null, "dueDate":"YYYY-MM-DD"|null, "dueTime":minutes|null,
+ "repeat":"none|daily|weekdays|weekly|monthly"|null,
  "reply":string|null}
+Время по умолчанию пхукетское (Asia/Bangkok). Если сказано «по мск/по Москве», tz = Europe/Moscow и время оставь как сказано.
+intent "remind" для «напомни…»: ownerKey = кому напомнить («нам» = both), dueDate/dueTime/repeat/title заполни.
 Правила: userKey = о чьём расписании речь (Вову зовут также киса, сиськонавт, зай; «мне» = отправитель).
 Если указан день недели без слова «каждый/по», это ближайшая такая дата (kind once). Без длительности считай 60 минут.
 intent "chat" для всего, что не про расписание, тогда заполни reply одной тёплой фразой с лёгкой шуткой, по-русски.

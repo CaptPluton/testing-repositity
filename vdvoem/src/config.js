@@ -2,6 +2,19 @@
 // but every value can be overridden through the environment.
 export const TZ = process.env.TZ_NAME || 'Asia/Bangkok';
 export const AWAKE = { start: 8 * 60, end: 23 * 60 };
+
+// Zones the couple can type times in. The calendar itself is always drawn in TZ (Phuket).
+export const MSK_TZ = 'Europe/Moscow';
+export const ZONES = [
+  { id: 'Asia/Bangkok', label: 'Пхукет', short: 'Пхукет', emoji: '🌴' },
+  { id: MSK_TZ, label: 'Москва', short: 'МСК', emoji: '🏙️' },
+];
+export function zoneById(id) {
+  return ZONES.find((z) => z.id === id) || null;
+}
+export function isZone(id) {
+  return Boolean(zoneById(id));
+}
 export const APP_NAME = process.env.APP_NAME || 'Вдвоём';
 export const MIN_FREE_WINDOW = 30; // minutes
 

@@ -4,6 +4,9 @@ import { dayOverview, nextCommonWindows } from '../schedule.js';
 import { fmtMin, fmtDateRu, fmtDuration, today, addDays } from '../time.js';
 import { address, randomLine, FREE_LINES, NO_FREE_LINES, countdownLine } from './texts.js';
 import { countdowns } from '../countdowns.js';
+import { listPresented } from '../tasks.js';
+
+const ownerShort = (k) => (k === 'both' ? 'оба' : k === 'yana' ? 'Яна' : 'Вова');
 
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -16,7 +19,8 @@ function personBlock(user, intervals) {
   if (!intervals.length) return `${head}: весь день свободна(ен) 🌴`;
   const lines = intervals.map((iv) => {
     const tag = iv.source === 'google' ? ' 📅' : iv.source === 'date' ? ' 💞' : '';
-    return `  ${fmtMin(iv.start)}–${fmtMin(iv.end)} ${esc(iv.title)}${tag}`;
+    const orig = iv.origLabel ? ` <i>(${esc(iv.origLabel)})</i>` : '';
+    return `  ${fmtMin(iv.start)}–${fmtMin(iv.end)} ${esc(iv.title)}${tag}${orig}`;
   });
   return `${head}\n${lines.join('\n')}`;
 }
@@ -32,6 +36,14 @@ export async function composeDay(dateStr, { title } = {}) {
     if (evening.length > 1) parts.push(`Ещё окна вдвоём: ${evening.filter((w) => w !== best).map(windowText).join(', ')}`);
   } else {
     parts.push(randomLine(NO_FREE_LINES));
+  }
+  const dayTasks = (ov.tasks || []).filter((t) => t.status === 'open');
+  const overdue = dateStr === today() ? listPresented('open').filter((p) => p.overdue && p.duePhuket?.date !== dateStr) : [];
+  if (dayTasks.length || overdue.length) {
+    const lines = [];
+    for (const p of overdue.slice(0, 8)) lines.push(`🔴 ${esc(p.title)} <i>(просрочено, ${esc(ownerShort(p.ownerKey))})</i>`);
+    for (const t of dayTasks.slice(0, 12)) lines.push(`▫️ ${t.minutes != null ? `${fmtMin(t.minutes)} ` : ''}${esc(t.title)} <i>(${esc(ownerShort(t.ownerKey))})</i>`);
+    parts.push(`<b>Задачи</b>\n${lines.join('\n')}`);
   }
   if (!ov.googleConnected && GOOGLE_OWNER_KEY) parts.push('<i>Google Календарь пока не подключён, созвоны не учтены.</i>');
   return parts.join('\n\n');

@@ -6,7 +6,7 @@ const pad = (n) => String(n).padStart(2, '0');
 export function partsInTz(d = new Date(), tz = TZ) {
   const fmt = new Intl.DateTimeFormat('en-CA', {
     timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit', hour12: false,
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
   });
   const p = Object.fromEntries(fmt.formatToParts(d).map((x) => [x.type, x.value]));
   const hour = Number(p.hour) % 24;
@@ -95,4 +95,51 @@ export function nextOccurrence(mmdd, fromDate = today()) {
   if (candidate < fromDate) candidate = `${y + 1}-${mmdd}`;
   const daysLeft = Math.round((Date.parse(`${candidate}T00:00:00Z`) - Date.parse(`${fromDate}T00:00:00Z`)) / 86400000);
   return { date: candidate, daysLeft };
+}
+
+// ---- multi-zone helpers (offsets are read per date, so DST zones would also work)
+export function offsetMin(dateStr, tz = TZ) {
+  const m = /^([+-])(\d{2}):(\d{2})$/.exec(tzOffsetString(dateStr, tz));
+  if (!m) return 0;
+  const v = Number(m[2]) * 60 + Number(m[3]);
+  return m[1] === '-' ? -v : v;
+}
+
+export function todayIn(tz = TZ) {
+  return partsInTz(new Date(), tz).date;
+}
+
+// Local wall time (date + minutes) in `tz` -> epoch milliseconds.
+export function zonedToMs(dateStr, minutes, tz = TZ) {
+  return Date.parse(`${dateStr}T00:00:00Z`) + (minutes - offsetMin(dateStr, tz)) * 60000;
+}
+
+// Epoch milliseconds -> {date, minutes, weekday} in `tz`.
+export function msToZoned(ms, tz = TZ) {
+  return partsInTz(new Date(ms), tz);
+}
+
+export function convertWallTime(dateStr, minutes, fromTz, toTz = TZ) {
+  return msToZoned(zonedToMs(dateStr, minutes, fromTz), toTz);
+}
+
+export function daysBetween(a, b) {
+  return Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86400000);
+}
+
+export function addMonths(dateStr, n) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const first = new Date(Date.UTC(y, m - 1 + n, 1));
+  const last = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate();
+  first.setUTCDate(Math.min(d, last));
+  return first.toISOString().slice(0, 10);
+}
+
+// "сегодня" / "завтра" / "вчера" / "пт, 16 октября" relative to `ref`.
+export function relDayRu(dateStr, ref = today()) {
+  const diff = daysBetween(ref, dateStr);
+  if (diff === 0) return 'сегодня';
+  if (diff === 1) return 'завтра';
+  if (diff === -1) return 'вчера';
+  return fmtDateRu(dateStr);
 }
