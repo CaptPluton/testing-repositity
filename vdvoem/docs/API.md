@@ -174,3 +174,9 @@ Reminders are delivered by the bot: privately to the owner (or to the couple's g
 fallback when the owner never opened a private chat with the bot), with buttons «Готово ✅», «+15 мин», «+1 ч», «Завтра».
 Bot phrases: «напомни мне завтра в 10 по мск позвонить маме», «напомни Вове в пятницу купить цветы»,
 «напоминай каждый день в 9 пить витамины», «задачи».
+
+## v3: validity period for weekly activities
+`Activity` gains `"validFrom": "YYYY-MM-DD" | null` and `"validUntil": "YYYY-MM-DD" | null` (inclusive, in the
+activity's tz; only meaningful for `kind: "recurring"`). A weekly slot shows only on dates inside the range.
+POST/PATCH accept both fields (`null` clears). Use them to show "с 29 окт" / "до 18 окт" in the sheet and to
+change a schedule from a given date without losing the past weeks.

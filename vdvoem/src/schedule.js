@@ -43,7 +43,9 @@ export function activityPartsOnDay(a, dateStr) {
   const out = [];
   for (const diff of [-1, 0, 1]) {
     const src = addDays(dateStr, diff);
-    const occurs = a.kind === 'recurring' ? weekdayOf(src) === a.weekday : a.date === src;
+    const occurs = a.kind === 'recurring'
+      ? weekdayOf(src) === a.weekday && (!a.validFrom || src >= a.validFrom) && (!a.validUntil || src <= a.validUntil)
+      : a.date === src;
     if (!occurs) continue;
     const shift = offsetMin(src, TZ) - offsetMin(src, tz);
     const s = diff * 1440 + a.start + shift;

@@ -66,6 +66,11 @@ function validateActivity(body, partial = false) {
     if (!isZone(tz)) throw httpError(400, 'bad_tz', 'Неизвестный часовой пояс');
     out.tz = tz;
   }
+  for (const k of ['validFrom', 'validUntil']) {
+    if (body[k] === undefined) continue;
+    if (body[k] !== null && !isValidDate(body[k])) throw httpError(400, 'bad_date', `${k} в формате YYYY-MM-DD`);
+    out[k] = body[k];
+  }
   if (body.start !== undefined) out.start = body.start;
   if (body.end !== undefined) out.end = body.end;
   if (out.start !== undefined || out.end !== undefined || !partial) {
@@ -79,6 +84,7 @@ function checkActivityComplete(a) {
   if (!Number.isInteger(a.start) || !Number.isInteger(a.end) || a.start < 0 || a.end > 1440 || a.end <= a.start) throw httpError(400, 'bad_time', 'Время указано неверно');
   if (a.kind === 'recurring' && !(Number.isInteger(a.weekday) && a.weekday >= 0 && a.weekday <= 6)) throw httpError(400, 'bad_weekday', 'Для еженедельного занятия нужен день недели');
   if (a.kind === 'once' && !isValidDate(a.date)) throw httpError(400, 'bad_date', 'Для разового занятия нужна дата');
+  if (a.validFrom && a.validUntil && a.validUntil < a.validFrom) throw httpError(400, 'bad_range', 'Дата окончания раньше даты начала');
 }
 
 export function createApp({ bot } = {}) {

@@ -66,12 +66,15 @@ export function openDb() {
   `);
   migrate();
   seedDefaults();
+  applyDataMigrations();
   return db;
 }
 
 function migrate() {
   const cols = db.prepare('PRAGMA table_info(activities)').all().map((c) => c.name);
   if (!cols.includes('tz')) db.exec("ALTER TABLE activities ADD COLUMN tz TEXT NOT NULL DEFAULT 'Asia/Bangkok'");
+  if (!cols.includes('valid_from')) db.exec('ALTER TABLE activities ADD COLUMN valid_from TEXT');
+  if (!cols.includes('valid_until')) db.exec('ALTER TABLE activities ADD COLUMN valid_until TEXT');
 }
 
 function seedDefaults() {
@@ -93,6 +96,51 @@ function seedDefaults() {
   }
   setSetting('seeded', '1');
 }
+
+// One-off schedule changes the couple asked for, applied once on startup (production DB is
+// only reachable from the running app). Each entry runs once, keyed in the settings table.
+function applyDataMigrations() {
+  for (const m of DATA_MIGRATIONS) {
+    const key = `data_migration:${m.id}`;
+    if (getSetting(key)) continue;
+    try {
+      db.exec('BEGIN');
+      m.run();
+      setSetting(key, new Date().toISOString());
+      db.exec('COMMIT');
+    } catch (e) {
+      db.exec('ROLLBACK');
+      console.error(`data migration ${m.id} failed`, e);
+    }
+  }
+}
+
+const DATA_MIGRATIONS = [
+  {
+    // Яна, английский: 19.10 и 21.10 с 10 до 12, сб 24.10 как обычно (13–15),
+    // затем вт 27.10 и ср 28.10 с 10 до 12, а дальше пн/ср 10–12 и сб 9–11.
+    id: '2026-10-english-reschedule',
+    run() {
+      const H = (h) => h * 60;
+      const english = listActivities().filter((a) => a.userKey === 'yana' && a.kind === 'recurring' && /англ/i.test(a.title));
+      const title = english[0]?.title || 'Английский';
+      for (const a of english) {
+        if (a.validUntil && a.validUntil < '2026-10-18') continue;
+        // Old Mon/Wed slots end this week; the old Saturday slot still covers 24.10.
+        updateActivity(a.id, { validUntil: a.weekday === 5 ? '2026-10-24' : '2026-10-18' });
+      }
+      const once = (date, start, end) => insertActivity({ userKey: 'yana', title, kind: 'once', date, start, end, tz: 'Asia/Bangkok' });
+      once('2026-10-19', H(10), H(12));
+      once('2026-10-21', H(10), H(12));
+      once('2026-10-27', H(10), H(12));
+      once('2026-10-28', H(10), H(12));
+      const weekly = (weekday, start, end, validFrom) => insertActivity({ userKey: 'yana', title, kind: 'recurring', weekday, start, end, tz: 'Asia/Bangkok', validFrom });
+      weekly(0, H(10), H(12), '2026-10-29');
+      weekly(2, H(10), H(12), '2026-10-29');
+      weekly(5, H(9), H(11), '2026-10-25');
+    },
+  },
+];
 
 // ---- settings
 export function getSetting(key) {
@@ -118,6 +166,7 @@ export function setJson(key, obj) {
 const rowToActivity = (r) => r && ({
   id: r.id, userKey: r.user_key, title: r.title, kind: r.kind,
   weekday: r.weekday, date: r.date, start: r.start, end: r.end, tz: r.tz || 'Asia/Bangkok',
+  validFrom: r.valid_from || null, validUntil: r.valid_until || null,
 });
 
 export function listActivities() {
@@ -128,8 +177,9 @@ export function getActivity(id) {
 }
 export function insertActivity(a) {
   const info = openDb().prepare(
-    'INSERT INTO activities(user_key,title,kind,weekday,date,start,end,tz) VALUES(?,?,?,?,?,?,?,?)',
-  ).run(a.userKey, a.title, a.kind, a.kind === 'recurring' ? a.weekday : null, a.kind === 'once' ? a.date : null, a.start, a.end, a.tz || 'Asia/Bangkok');
+    'INSERT INTO activities(user_key,title,kind,weekday,date,start,end,tz,valid_from,valid_until) VALUES(?,?,?,?,?,?,?,?,?,?)',
+  ).run(a.userKey, a.title, a.kind, a.kind === 'recurring' ? a.weekday : null, a.kind === 'once' ? a.date : null, a.start, a.end, a.tz || 'Asia/Bangkok',
+    a.kind === 'recurring' ? a.validFrom ?? null : null, a.kind === 'recurring' ? a.validUntil ?? null : null);
   return getActivity(info.lastInsertRowid);
 }
 export function updateActivity(id, patch) {
@@ -137,8 +187,9 @@ export function updateActivity(id, patch) {
   if (!cur) return null;
   const next = { ...cur, ...patch };
   openDb().prepare(
-    'UPDATE activities SET user_key=?, title=?, kind=?, weekday=?, date=?, start=?, end=?, tz=? WHERE id=?',
-  ).run(next.userKey, next.title, next.kind, next.kind === 'recurring' ? next.weekday : null, next.kind === 'once' ? next.date : null, next.start, next.end, next.tz || 'Asia/Bangkok', id);
+    'UPDATE activities SET user_key=?, title=?, kind=?, weekday=?, date=?, start=?, end=?, tz=?, valid_from=?, valid_until=? WHERE id=?',
+  ).run(next.userKey, next.title, next.kind, next.kind === 'recurring' ? next.weekday : null, next.kind === 'once' ? next.date : null, next.start, next.end, next.tz || 'Asia/Bangkok',
+    next.kind === 'recurring' ? next.validFrom ?? null : null, next.kind === 'recurring' ? next.validUntil ?? null : null, id);
   return getActivity(id);
 }
 export function deleteActivity(id) {
