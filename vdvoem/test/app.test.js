@@ -70,12 +70,12 @@ test('api: auth gate', async () => {
 });
 
 test('api: seeded week has both schedules and common free windows', async () => {
-  const w = await call(yana, 'GET', '/api/week?start=2026-10-12');
+  const w = await call(yana, 'GET', '/api/week?start=2026-10-19');
   assert.equal(w.status, 200);
   const mon = w.json.days[0];
-  assert.equal(mon.busy.yana[0].title, 'Английский');
-  assert.equal(mon.busy.vova[0].title, 'Психолог');
-  assert.ok(mon.commonFree.some((f) => f.start === 840 && f.end === 1380));
+  assert.equal(mon.busy.yana[0].title, 'Английский'); // 10:00–12:00
+  assert.equal(mon.busy.vova[0].title, 'Психолог'); // 11:00–11:55
+  assert.ok(mon.commonFree.some((f) => f.start === 720 && f.end === 1380));
 });
 
 test('api: activity CRUD', async () => {
@@ -117,7 +117,7 @@ test('api: settings and ideas', async () => {
 });
 
 test('digest composers render HTML without throwing', async () => {
-  const day = await composeDay('2026-10-12');
+  const day = await composeDay('2026-10-19');
   assert.match(day, /Английский/); assert.match(day, /Психолог/);
   assert.match(await composeFree(), /свободны|окон/);
 });

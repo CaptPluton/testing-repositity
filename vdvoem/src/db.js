@@ -140,6 +140,18 @@ const DATA_MIGRATIONS = [
       weekly(5, H(9), H(11), '2026-10-25');
     },
   },
+  {
+    // Яна: убрать старое расписание английского целиком (пн/ср 12–14, сб 13–15),
+    // оставив только субботу 24.10 в 13–15 отдельным занятием.
+    id: '2026-10-english-drop-old',
+    run() {
+      const old = listActivities().filter((a) => a.userKey === 'yana' && a.kind === 'recurring' && /англ/i.test(a.title) && !a.validFrom);
+      const title = old[0]?.title || 'Английский';
+      for (const a of old) deleteActivity(a.id);
+      const has24 = listActivities().some((a) => a.userKey === 'yana' && a.kind === 'once' && a.date === '2026-10-24' && /англ/i.test(a.title));
+      if (!has24) insertActivity({ userKey: 'yana', title, kind: 'once', date: '2026-10-24', start: 13 * 60, end: 15 * 60, tz: 'Asia/Bangkok' });
+    },
+  },
 ];
 
 // ---- settings

@@ -146,10 +146,10 @@ test('parser: reminders and МСК', () => {
   assert.equal(parseCommand('задачи', { senderKey: 'yana' }).intent, 'tasks');
 });
 
-test('English reschedule migration: weeks of 12.10, 19.10, 26.10 and 2.11', async () => {
+test('English: old slots removed, new schedule from 19.10', async () => {
   const w = async (start) => (await call(yana, 'GET', `/api/week?start=${start}`)).json.days
     .map((d) => d.busy.yana.filter((b) => /Англ/i.test(b.title)).map((b) => `${d.date.slice(5)} ${b.start / 60}-${b.end / 60}`)).flat();
-  assert.deepEqual(await w('2026-10-12'), ['10-12 12-14', '10-14 12-14', '10-17 13-15']);
+  assert.deepEqual(await w('2026-10-12'), []);
   assert.deepEqual(await w('2026-10-19'), ['10-19 10-12', '10-21 10-12', '10-24 13-15']);
   assert.deepEqual(await w('2026-10-26'), ['10-27 10-12', '10-28 10-12', '10-31 9-11']);
   assert.deepEqual(await w('2026-11-02'), ['11-02 10-12', '11-04 10-12', '11-07 9-11']);
@@ -158,4 +158,7 @@ test('English reschedule migration: weeks of 12.10, 19.10, 26.10 and 2.11', asyn
   again.openDb(); // reopening must not re-apply
   assert.equal(again.listActivities().length, before);
   assert.equal((await call(yana, 'PATCH', `/api/activities/${again.listActivities().find((a) => a.validFrom).id}`, { validUntil: '2020-01-01' })).status, 400);
+  const eng = again.listActivities().filter((a) => /Англ/i.test(a.title));
+  assert.equal(eng.filter((a) => a.kind === 'recurring' && !a.validFrom).length, 0, 'no old weekly slots left');
+  assert.equal(eng.length, 8);
 });
