@@ -1,5 +1,7 @@
+import { EXTRA_CATEGORIES, EXTRA_IDEAS, LINKS_FOR_EXISTING } from './ideas-extra.js';
+
 // Curated Phuket date ideas. bestTime: 'sunset' | 'evening' | 'day' | 'any'
-export const CATEGORIES = [
+const BASE_CATEGORIES = [
   { key: 'sunset', label: 'Закат', emoji: '🌅' },
   { key: 'food', label: 'Поесть', emoji: '🍜' },
   { key: 'active', label: 'Активно', emoji: '🏄' },
@@ -8,7 +10,7 @@ export const CATEGORIES = [
   { key: 'surprise', label: 'Сюрприз', emoji: '🎁' },
 ];
 
-export const IDEAS = [
+const BASE_IDEAS = [
   { id: 'promthep', title: 'Закат на мысе Промтеп', emoji: '🌅', category: 'sunset', duration: 120, bestTime: 'sunset', area: 'Раваи', description: 'Приехать за полчаса до заката, сесть на камни подальше от толпы и просто смотреть. Потом ужин в Раваи.' },
   { id: 'karon-viewpoint', title: 'Смотровая Карон и три пляжа', emoji: '🏝️', category: 'sunset', duration: 90, bestTime: 'sunset', area: 'Карон', description: 'Три бухты в одном кадре. Хорошо заезжать по пути с Ката на ужин.' },
   { id: 'kata-noi-sunset', title: 'Ката Ной: плед, закат, тишина', emoji: '🧺', category: 'sunset', duration: 120, bestTime: 'sunset', area: 'Ката Ной', description: 'Маленький пляж, где почти никого нет вечером. Взять фрукты и плед, остаться до темноты.' },
@@ -45,6 +47,12 @@ export const IDEAS = [
   { id: 'surprise-letter', title: 'Письмо и место из прошлого', emoji: '💌', category: 'surprise', duration: 120, bestTime: 'evening', area: 'где всё началось', description: 'Вернуться туда, где было особенно хорошо, и прочитать друг другу короткие письма.' },
 ];
 
+export const CATEGORIES = [...BASE_CATEGORIES, ...EXTRA_CATEGORIES];
+export const IDEAS = [
+  ...BASE_IDEAS.map((i) => ({ ...i, links: LINKS_FOR_EXISTING[i.id] || [] })),
+  ...EXTRA_IDEAS,
+];
+
 export function ideaById(id) {
   return IDEAS.find((i) => i.id === id) || null;
 }
@@ -56,6 +64,7 @@ function fits(idea, start, end, weekday) {
   const len = end - start;
   if (idea.id === 'sunday-market' && weekday !== 6) return false;
   if (idea.id === 'boat-avenue' && weekday !== 4) return false;
+  if (/sunrise|рассвет/i.test(`${idea.id} ${idea.title}`)) return start <= 6 * 60 + 30; // dawn ideas need an early slot
   if (idea.bestTime === 'sunset') return start <= SUNSET_START + 30 && end >= SUNSET_END - 15;
   if (idea.bestTime === 'evening') return end >= 19 * 60 && start >= 15 * 60 - 1 || (start >= 17 * 60);
   if (idea.bestTime === 'day') return start < 16 * 60 && len >= Math.min(idea.duration, 120);
