@@ -1,4 +1,5 @@
 import { EXTRA_CATEGORIES, EXTRA_IDEAS, LINKS_FOR_EXISTING } from './ideas-extra.js';
+import { COZY_CATEGORIES, COZY_IDEAS } from './ideas-cozy.js';
 
 // Curated Phuket date ideas. bestTime: 'sunset' | 'evening' | 'day' | 'any'
 const BASE_CATEGORIES = [
@@ -47,10 +48,11 @@ const BASE_IDEAS = [
   { id: 'surprise-letter', title: 'Письмо и место из прошлого', emoji: '💌', category: 'surprise', duration: 120, bestTime: 'evening', area: 'где всё началось', description: 'Вернуться туда, где было особенно хорошо, и прочитать друг другу короткие письма.' },
 ];
 
-export const CATEGORIES = [...BASE_CATEGORIES, ...EXTRA_CATEGORIES];
+export const CATEGORIES = [...BASE_CATEGORIES, ...COZY_CATEGORIES, ...EXTRA_CATEGORIES];
 export const IDEAS = [
   ...BASE_IDEAS.map((i) => ({ ...i, links: LINKS_FOR_EXISTING[i.id] || [] })),
   ...EXTRA_IDEAS,
+  ...COZY_IDEAS,
 ];
 
 export function ideaById(id) {
